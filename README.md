@@ -20,6 +20,7 @@ Este repositório público contém **o método universal para criar e aprimorar 
 | [AGENTS.md](AGENTS.md) | Regras de operação para Codex e agentes similares |
 | [CLAUDE.md](CLAUDE.md) | Instruções para Claude Code |
 | [REGISTRO_DE_PROJETOS.md](REGISTRO_DE_PROJETOS.md) | Índice de repositórios e estado da adoção do método |
+| [CHANGELOG.md](CHANGELOG.md) | Histórico das versões publicadas da metodologia |
 | [MODELO_PROJETO/](MODELO_PROJETO/) | Templates de AGENTS, CLAUDE, ESTADO_ATUAL, DECISOES, HANDOFF e APRENDIZADOS |
 
 ## Como pedir a outra IA
