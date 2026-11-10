@@ -1,16 +1,13 @@
 # REGISTRO DE PROJETOS
 
-Este índice indica os repositórios relacionados. **A adoção da metodologia V3.0 ainda não foi confirmada nesses projetos.** Os arquivos e estados reais ficam no próprio repositório de cada projeto.
+Lista de repositórios de jogos que adotam esta metodologia. **Preencha depois de verificar a URL, o nível de acesso e a versão real do projeto.** Não vincule um projeto a outro por semelhança de gênero.
 
-| Projeto | Repositório GitHub | Branch canônica identificada | Adoção da metodologia |
-|---|---|---|---|
-| Diabito Fit Arcade — documentação e referências | [Diabito-fit-arcade](https://github.com/andrervarella/Diabito-fit-arcade) | main | A confirmar |
-| Diabito Fit Arcade — publicação web | [Diabito-fit-arcade-web](https://github.com/andrervarella/Diabito-fit-arcade-web) | gh-pages | A confirmar |
-| AV Arena — Diabito vs Joker | [av-arena-diabito-vs-joker](https://github.com/andrervarella/av-arena-diabito-vs-joker) | main | A confirmar |
-| FTW Race | [FTW-Race](https://github.com/andrervarella/FTW-Race) | main | A confirmar |
+| Projeto / tipo (jogo, vídeo etc.) | Repositório GitHub | Branch canônica | Versão da metodologia | Projeto relacionado e observações |
+|---|---|---|---|---|
+| (nome) | (URL verificável autorizada para publicação) | main ou equivalente | V3.0 | (curto) |
 
 ## Regra de atualização
 
-Ao iniciar trabalho em um projeto, consulte **primeiro** o repositório dele, confirme branch e último commit, e depois consulte a metodologia aqui. Este registro é um índice de localização, não uma sincronização automática de arquivos ou decisões. Não misture o universo de jogos diferentes.
+Ao iniciar trabalho em um projeto, consulte **primeiro** o repositório dele. Este registro é um índice de localização, não é um espelho automático de arquivos ou decisões.
 
-Para novos projetos, acrescente uma linha apenas após verificar a URL, a branch e o estado real. Evite publicar informações pessoais ou materiais não autorizados no repositório público.
+**Privacidade:** por ser um repositório público, não inclua links, nomes ou metadados de repositórios privados sem autorização explícita; mantenha índices privados nos próprios projetos quando apropriado.
