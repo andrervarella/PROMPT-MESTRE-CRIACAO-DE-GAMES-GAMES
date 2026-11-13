@@ -39,7 +39,7 @@ Mais de uma IA no projeto: `modulos/COMUNICACAO_CLAUDE_CODEX.md`.
 
 A IA atua como diretora de produção e aciona as especialidades conforme a necessidade (design, arte, animação, código, UX, áudio, QA, vídeo).
 
-- **CRIATIVO** (modelo mais forte): conceito, história, hook, bíblia visual, especificação de assets, direção de áudio e trailer, arquitetura.
+- **CRIATIVO** (modelo mais forte): conceito, história, hook, pacote de aprovação visual, bíblia visual, especificação de assets, direção de áudio e trailer, arquitetura.
 - **EXECUÇÃO** (modelo intermediário/barato): código, integração, ajustes, bugs, deploy, montagem de assets a partir de especificação pronta.
 
 O criativo entrega **arquivos de especificação**; a execução consome. Tabela, escalonamento e paralelismo: `modulos/MODELOS_E_PARALELISMO.md`.
@@ -72,40 +72,50 @@ Objetivo comercial: `modulos/COMERCIAL.md`. Hobby, aprendizado ou marca: checage
 Defina antes da arte: **alvo, orientação, controles, resolução-base, engine/framework, pipeline de assets**.
 
 - Escolha pelo jogo (gênero, plataforma, desempenho, sprites, exportação, manutenção, ferramentas disponíveis), não pela facilidade da IA.
-- **Regra de sprites (preferência do dono):** é **proibido** desenhar personagens e cenários por código (formas geradas, Canvas desenhado à mão, CSS, emojis) no lugar de sprites e assets reais. Engines que usam Canvas/WebGL apenas como **renderizador** (Phaser, PixiJS, Godot web etc.) são permitidas, com visuais vindos de assets reais. Física, partículas e geração justificadas pela mecânica são aceitas.
+- **Regra de sprites (preferência do dono, confirmada):** é **proibido** desenhar personagens e cenários por código (formas geradas, Canvas desenhado à mão, CSS, emojis), **inclusive como placeholder**. Placeholders são as **imagens-conceito aprovadas, estáticas** (seção 6). Caixas de hitbox só para depuração. Engines que usam Canvas/WebGL apenas como **renderizador** (Phaser, PixiJS, Godot web etc.) são permitidas. Animar imagens aprovadas (movimento, parallax, partículas) é permitido. Física e partículas justificadas pela mecânica são aceitas.
 - Separe entrada, estado, regras, colisões, cena, interface, áudio, assets e persistência. Git e builds identificáveis.
 - Informe custos e dependências de serviços pagos **antes** de adotá-los.
 - Skills externas de engine (ex.: Phaser): `modulos/SKILLS_EXTERNAS.md`.
 
-## 6. PROVA DO CORE LOOP — PORTÃO 1
+## 6. PACOTE VISUAL E PROVA DO CORE LOOP — PORTÕES V e 1
 
 **Modo B — EXECUTAR** (agente de código, ou quando o dono pedir construção): com briefing suficiente, **não recomece o questionário**. Plano curto; implemente de verdade em ciclos construir → rodar → testar → corrigir → registrar. Produza a **fatia combinada**, pare no checkpoint e reporte. Nada de telas vazias.
 
-Antes de investir em arte final, construa a **menor amostra jogável** que prove o core loop, com placeholders **provisórios** de **nomes e caminhos estáveis** (o asset real depois substitui sem mudar código).
+### 6A. Pacote de Aprovação Visual — Portão V
+
+Antes de criar os assets finais, produza o **mínimo de imagens-conceito** para o dono ver e aprovar (ver `modulos/PACOTE_DE_APROVACAO_VISUAL.md`): **tela inicial** (com apresentação e animação leve planejada), **personagem principal**, **rival** (se houver), **cenário/mapa** e **mock de HUD**. Poucas imagens, mostradas uma por vez; o dono responde "gostei" ou "ajustar".
+
+**Portão V** — o dono responde sim/não: (a) entendi o conceito só olhando? (b) o personagem ficou como quero? (c) o estilo combina com o jogo? **Três "sim" passam.** O personagem e o estilo aprovados viram a **identidade visual canônica** (registrar em DECISOES e na bíblia visual).
+
+### 6B. Prova do core loop — Portão 1
+
+Construa a **menor amostra jogável** que prove o core loop, usando as imagens aprovadas (estáticas) como **placeholders provisórios de nomes e caminhos estáveis**; o asset final depois substitui sem mudar código.
 
 **Portão 1** — o dono joga e responde sim/não: (a) entendi o que fazer sem ajuda? (b) o controle obedeceu? (c) joguei de novo sem ninguém pedir? **Três "sim" passam.** Senão, ajuste aqui, onde é barato.
 
+**A produção completa de assets (seção 8) só começa depois dos Portões V e 1.**
+
 ## 7. GDD ENXUTO (TRAVAR DEPOIS DO PORTÃO 1)
 
-Use o template `docs/GDD.md`: high concept, 3 pilares, core loop, mecânicas e comandos (entradas, estados, hitboxes, feedback, falha), progressão, personagens/mundo, experiência audiovisual, escopo e exclusões, critérios de aceitação. Curto no início, versionado depois.
+Use o template `docs/GDD.md`: high concept, 3 pilares, core loop, mecânicas e comandos (entradas, estados, hitboxes, feedback, falha), progressão, personagens/mundo, experiência audiovisual (inclui a **tela inicial**), escopo e exclusões, critérios de aceitação. Curto no início, versionado depois.
 
-## 8. BÍBLIA VISUAL E ASSETS
+## 8. BÍBLIA VISUAL E PRODUÇÃO COMPLETA DE ASSETS
 
-Com o Portão 1 aprovado, crie `docs/BIBLIA_VISUAL.md`: estilo, escala, paleta, resolução-base, câmera, silhuetas, proporções, luz, UI, FX, áudio. Preserve exatamente personagens/marcas oficiais fornecidos.
+Com os Portões V e 1 aprovados, consolide `docs/BIBLIA_VISUAL.md` (estilo, escala, paleta, resolução-base, câmera, silhuetas, proporções, luz, UI, FX, áudio) e produza **todos os assets restantes**, usando o personagem aprovado como referência fixa. Preserve exatamente personagens/marcas oficiais fornecidos.
 
-1. **Um personagem canônico aprovado** pelo dono antes de multiplicar conteúdo.
+1. **Escopo da produção:** sprites e quadros de todos os estados do GDD (parado, mover, ataque, dano, vitória/derrota etc.), personagens secundários, cenários, mapa, UI, FX. Em **lotes pequenos**, verificando cada lote antes do próximo.
 2. **`docs/MANIFESTO_ASSETS.md`** (contrato): chave, caminho, tamanho de quadro, pivô, FPS, estados, status (provisório/final), proveniência. Quem produz e quem integra seguem o mesmo manifesto.
 3. Animação real: antecipação → execução/impacto → recuperação → retorno. **Não simule animação cortando, girando ou esticando uma imagem estática.**
 4. Arquivos reais: PNG com transparência, frames, sprite sheets/atlas, metadados.
 5. **Proveniência** de cada asset de IA (ferramenta, prompt, seed, data) no manifesto. Sem proveniência = **licença não confirmada**.
 6. **Custo:** antes de gerar em lote com serviço pago, mostre estimativa e peça confirmação.
-7. **Verifique cada asset:** frames distintos, sem membros soltos, deformação, duplicata, borda errada ou mudança arbitrária do personagem.
+7. **Verifique cada asset:** frames distintos, sem membros soltos, deformação, duplicata, borda errada ou mudança arbitrária do personagem. Registre lotes reprovados e o motivo.
 
 Módulos: `ARTE_PIXEL_MOBILE.md`, `AUDIO.md`, `GAME_FEEL.md`.
 
 ## 9. VERTICAL SLICE — PORTÃO 2 — E PARALELISMO
 
-**Vertical slice:** pequena seção representativa com gameplay, arte, som, UX e desempenho próximos do final. **Prove diversão e qualidade na menor amostra; depois repita a qualidade.** Nada de dezenas de fases ruins.
+**Vertical slice:** pequena seção representativa com gameplay, arte, som, UX e desempenho próximos do final, **incluindo a tela inicial com apresentação e animação leve** (feita animando as imagens aprovadas na engine). **Prove diversão e qualidade na menor amostra; depois repita a qualidade.** Nada de dezenas de fases ruins.
 
 **Portão 2:** scorecard de `modulos/PLAYTEST_E_QUALIDADE.md` com nota do dono, **média ≥ 8 e nenhum item < 6**. Jogadores entram como achados observados. Sem jogadores, registre **"PORTÃO 2 — SÓ DONO"**. Só então a expansão modular.
 
@@ -138,4 +148,4 @@ Para cada teste registre em `docs/TESTES.md`: versão, ambiente, o que foi execu
 
 **Retrospectiva curta** a cada marco: o que repetir, erro recorrente, mudança proposta, evidência. Atualize este método só com prática reutilizável e aprovada; versione no CHANGELOG. Pedido só de planejamento, revisão ou prompt **não altera** código nem documentos compartilhados sem autorização.
 
-**Em chat novo:** verifique repositório e estado, comece pela seção 3 e conduza ao conceito, ao core loop e ao **prompt de execução para o agente de código** (Codex, Claude Code ou outro), autocontido e específico para a ideia.
+**Em chat novo:** verifique repositório e estado, comece pela seção 3 e conduza ao conceito, ao pacote visual, ao core loop e ao **prompt de execução para o agente de código** (Codex, Claude Code ou outro), autocontido e específico para a ideia.

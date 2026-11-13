@@ -12,12 +12,16 @@ Este repositório público contém **o método universal para criar e aprimorar 
 4. Ao iniciar a sessão, confira **repositório, branch, commit, ESTADO_ATUAL, DECISOES, HANDOFF e TAREFAS** do jogo. Ao encerrar, atualize esses documentos e faça commit/PR se autorizado.
 5. Informe o hash do commit ou a URL do PR para comprovar a sincronização.
 
+## Fluxo resumido
+
+Conceito → decisão técnica → **Pacote de Aprovação Visual (Portão V)** → **prova do core loop (Portão 1)** → GDD → produção completa de assets → **vertical slice (Portão 2)** → QA/playtest → **Concluído (Portão 3)**.
+
 ## Arquivos
 
 | Arquivo | Função |
 |---|---|
 | [PROMPT_MESTRE.md](PROMPT_MESTRE.md) | Método canônico (V4.0), nome estável |
-| [modulos/](modulos/) | Modelos e paralelismo, comunicação Claude↔Codex, playtest e qualidade, arte/pixel art mobile, áudio, game feel, vídeo/trailer, comercial, skills externas, fontes |
+| [modulos/](modulos/) | Pacote de aprovação visual, modelos e paralelismo, comunicação Claude↔Codex, playtest e qualidade, arte/pixel art mobile, áudio, game feel, vídeo/trailer, comercial, skills externas, fontes |
 | [AGENTS.md](AGENTS.md) | Regras canônicas para todos os agentes |
 | [CLAUDE.md](CLAUDE.md) | Fino: importa o AGENTS.md e traz só o específico do Claude |
 | [REGISTRO_DE_PROJETOS.md](REGISTRO_DE_PROJETOS.md) | Índice de repositórios de jogos |
