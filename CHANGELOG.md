@@ -4,21 +4,24 @@ Registra **mudanças aprovadas e publicadas** na metodologia universal. Não con
 
 ## [4.0] — 2026-11-13 (proposta via PR; vale após merge)
 
-**Motivo:** revisão crítica da V3.1 (análise do Fable + conferência do Claude) e pesquisa de repositórios e práticas públicas (ver `modulos/FONTES.md`). A V3.1 tinha 33 KB, era repetitiva, centrada no Codex, com ordem que gastava arte antes de provar diversão, regra de Canvas inconsistente com Phaser, e sem as peças do fluxo atual.
+**Motivo:** revisão crítica da V3.1 (duas rodadas de análise do Fable + conferência do Claude) e pesquisa de repositórios e práticas públicas (ver `modulos/FONTES.md`). A V3.1 tinha 33 KB, era repetitiva, centrada no Codex, com ordem que gastava arte antes de provar diversão, regra de Canvas inconsistente com Phaser, e sem as peças do fluxo atual.
 
-- **Núcleo curto** `PROMPT_MESTRE.md` (nome estável, versão só no cabeçalho) + **módulos sob demanda** em `modulos/`.
-- **Contrato de Evidência** único (EXECUTADO / SÓ LIDO / NÃO VERIFICADO); a nota da IA sobre o próprio trabalho é hipótese.
-- **Nova ordem:** abertura → brief → conceito/hook → decisão técnica mínima → **prova do core loop (Portão 1)** → GDD → bíblia visual e assets → **vertical slice (Portão 2)** → QA/playtest → continuidade/entrega/trailer.
-- **Qualidade mensurável:** módulo `PLAYTEST_E_QUALIDADE` com scorecard de 8 dimensões, limiares dos portões e protocolo de playtest (observação silenciosa, 3–5 jogadores, critérios mensuráveis). Limiares são ponto de partida.
-- **Comunicação Claude↔Codex:** módulo `COMUNICACAO_CLAUDE_CODEX` — `AGENTS.md` canônico e `CLAUDE.md` fino (`@AGENTS.md`), ordem de serviço, fila `docs/TAREFAS.md`, branches por IA, PR, integrador, mensagem de entrega. Template `TAREFAS.md` em `MODELO_PROJETO/docs`.
+- **Núcleo curto** `PROMPT_MESTRE.md` (nome estável, versão só no cabeçalho) + **módulos sob demanda** em `modulos/`. Entrada única: sempre a seção 1.
+- **Contrato de Evidência** único (EXECUTADO / EXECUTADO (EMULADO) / SÓ LIDO / NÃO VERIFICADO), aplicado ao relatório de entrega; a nota da IA sobre o próprio trabalho é hipótese.
+- **Nova ordem:** abertura → brief → conceito/hook → decisão técnica mínima → **prova do core loop (Portão 1)** → GDD → bíblia visual e assets → **vertical slice (Portão 2)** → QA/playtest → **Concluído (Portão 3)** → continuidade/entrega/trailer.
+- **Qualidade operável:** Portão 1 = 3 perguntas sim/não ao dono; Portões 2 e 3 = scorecard de 8 dimensões com nota do dono, âncoras (6/8/10), média ≥ 8 e nenhum < 6; jogadores entram como achados observados; modo "SÓ DONO". Limiares são ponto de partida.
+- **Smoke test** em navegador headless para jogos web (rótulo EMULADO) e números iniciais de desempenho (≥ 55 FPS, carga ≤ 5 s).
+- **Comunicação Claude↔Codex:** `AGENTS.md` canônico e autossuficiente + `CLAUDE.md` fino (`@AGENTS.md`); ordem de serviço; fila `docs/TAREFAS.md`; **escritor único** dos arquivos compartilhados (executora escreve `docs/handoff/T-xxx.md`, integrador atualiza TAREFAS/ESTADO); branches por IA (ou o nome imposto pela ferramenta); integrador padrão = dono; regra para chats.
+- **Templates novos** em `MODELO_PROJETO/docs`: `TAREFAS`, `GDD`, `MANIFESTO_ASSETS`, `TESTES`, `handoff/T-000-exemplo`.
 - **Níveis de modelo** (criativo × execução) e **paralelismo** (3–4 agentes, teto de custo, integrador único).
 - **Assets:** placeholders com nomes estáveis, proveniência por asset, estimativa de custo antes de gerar em lote.
-- Módulos novos: arte/pixel art mobile, áudio, game feel (com pontos de partida), vídeo/trailer, fontes. Comercial e skills externas movidos do texto antigo; skills externas atualizadas (79 skills, mapa para Phaser).
+- Módulos novos: playtest e qualidade, comunicação, arte/pixel art mobile, áudio, game feel (pontos de partida), vídeo/trailer, fontes. Comercial e skills externas movidos do texto antigo; skills externas atualizadas (79 skills, mapa para Phaser).
 - **Regra de sprites reformulada:** mantém a intenção do dono (proibido desenhar personagens/cenários por código no lugar de sprites reais), mas permite engines que usam Canvas/WebGL só como renderizador. **Requer confirmação do dono.**
 - Neutro quanto ao agente ("prompt de execução para o agente de código"). Modo B: "fatia combinada e parar no checkpoint".
 - Corrigidos "V3.0" no README, `ESTADO_ATUAL.md` do modelo e exemplo do REGISTRO.
 - Compatibilidade: V3.1 e V3.0 **preservadas** na raiz como histórico.
-- Commit/PR: ver o PR `claude/protocolo-v4-0`.
+- **Não comprovado:** nenhum jogo rodou ainda com a V4.0. Os primeiros projetos devem devolver aprendizados ao método (`APRENDIZADOS.md`).
+- Commit/PR: preencher com o hash do merge.
 
 ## [3.1] — 2026-11-10
 
