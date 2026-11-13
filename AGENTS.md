@@ -1,12 +1,17 @@
-# AGENTS.md — Repositório de metodologia universal para jogos
+# AGENTS.md — Repositório de metodologia universal para jogos (canônico)
 
-- Este repositório mantém o **protocolo universal**, não o código de um jogo específico. Leia `PROMPT_MESTRE_UNIVERSAL_GAMES_IA_V3_1.md` quando a tarefa tratar de metodologia ou da geração de um projeto novo; leia somente os documentos pertinentes em correções pontuais.
-- O usuário é diretor criativo. Não altere decisões aprovadas sem aprovação; registre mudanças significativas.
-- Para mudar a metodologia: compare versão atual, explique motivo e evidência, mantenha compatibilidade, atualize versão/changelog e valide os links e modelos.
-- Para desenvolver um jogo, use **o repositório daquele jogo**, não este; mantenha nele `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md` e `docs/HANDOFF.md` ou equivalentes existentes.
-- Antes de agir em GitHub: confira repositório, branch e commit; não confunda branch de trabalho com `main`.
-- Após trabalho significativo: registre o que foi concluído, pendências, testes realmente executados, arquivos e próximo passo. Só anuncie sincronização após commit/PR publicado e confirmação do destino.
-- Evite sobrescrever commits de outros agentes; use branches e PR quando houver colaboração simultânea.
-- Não invente assets, código executado, logs, resultados ou acesso a plugins. Não copie conteúdo protegido sem autorização. Não publique ou realize gastos sem aprovação.
-- Repositório público opcional de skills de jogos: https://github.com/gamedev-skills/awesome-gamedev-agent-skills . Consulte apenas se útil e houver acesso real; não presuma instalação, roteador ativo nem copie assets/código sem verificar licença.
-- Mantenha respostas e perguntas curtas; priorize produção verificável e revisões de qualidade, não documentação repetitiva.
+Arquivo compartilhado por todos os agentes (Codex, Claude Code e outros). Mantenha curto.
+
+- Este repositório mantém o **protocolo universal**, não o código de um jogo. Leia `PROMPT_MESTRE.md` para metodologia ou novo projeto; abra `modulos/` só se a tarefa pedir. Em correções pontuais, leia só o pertinente.
+- O dono é o diretor criativo. Não altere decisões aprovadas sem aprovação; registre mudanças significativas.
+- Modelos: trabalho **criativo** no modelo mais forte, **execução** no mais barato (`modulos/MODELOS_E_PARALELISMO.md`).
+- Comunicação entre IAs (ordem de serviço, fila `docs/TAREFAS.md`, branches, PR, integrador): `modulos/COMUNICACAO_CLAUDE_CODEX.md`.
+- Qualidade do jogo: portões e scorecard em `modulos/PLAYTEST_E_QUALIDADE.md`. A nota da IA é hipótese; vale a do dono e a de jogadores reais.
+- Para mudar a metodologia: compare a versão atual, explique motivo e evidência, mantenha compatibilidade, atualize versão e `CHANGELOG.md`, valide links e modelos. Proponha por branch + PR.
+- Para desenvolver um jogo, use **o repositório daquele jogo**; mantenha lá `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/HANDOFF.md` e `docs/TAREFAS.md`.
+- Antes de agir no GitHub: confira repositório, branch e commit.
+- Após trabalho significativo: registre concluído, pendências, testes realmente executados, arquivos e próximo passo. Só anuncie sincronização após commit/PR confirmado.
+- Evite sobrescrever commits de outros agentes; use branches e PR.
+- Vale o Contrato de Evidência (seção 0 do `PROMPT_MESTRE.md`).
+- Skills externas são opcionais e exigem autorização para instalar: `modulos/SKILLS_EXTERNAS.md`.
+- Respostas e perguntas curtas; priorize produção verificável.

@@ -4,10 +4,10 @@ Lista de repositórios de jogos que adotam esta metodologia. **Preencha depois d
 
 | Projeto / tipo (jogo, vídeo etc.) | Repositório GitHub | Branch canônica | Versão da metodologia | Projeto relacionado e observações |
 |---|---|---|---|---|
-| (nome) | (URL verificável autorizada para publicação) | main ou equivalente | V3.0 | (curto) |
+| (nome) | (URL verificável autorizada para publicação) | main ou equivalente | [versão usada] | (curto) |
 
 ## Regra de atualização
 
-Ao iniciar trabalho em um projeto, consulte **primeiro** o repositório dele. Este registro é um índice de localização, não é um espelho automático de arquivos ou decisões.
+Ao iniciar trabalho em um projeto, consulte **primeiro** o repositório dele. Este registro é um índice de localização, não um espelho automático de arquivos ou decisões.
 
 **Privacidade:** por ser um repositório público, não inclua links, nomes ou metadados de repositórios privados sem autorização explícita; mantenha índices privados nos próprios projetos quando apropriado.

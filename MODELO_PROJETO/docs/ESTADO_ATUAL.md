@@ -6,8 +6,8 @@
 - Commit da branch canônica conferido: [SHA ou NÃO VERIFICADO]
 - Branch em trabalho: [nome]
 - Commit de trabalho: [SHA ou NÃO SINCRONIZADO]
-- Versão da metodologia: V3.0
-- Estágio: [descoberta | protótipo | vertical slice | alpha | beta | release]
+- Versão da metodologia: [V4.0 ou a versão realmente usada]
+- Estágio: [descoberta | prova do core loop | vertical slice | alpha | beta | release]
 
 ## Implementado e confirmado
 - [Fato verificado + arquivo/commit/build]

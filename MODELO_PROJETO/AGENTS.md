@@ -1,8 +1,23 @@
-# AGENTS.md — Modelo para repositório de jogo
+# AGENTS.md — Modelo para repositório de jogo (canônico, autossuficiente)
 
-- Este repositório contém o jogo **[NOME]**, que usa o Prompt Mestre Universal **V3.1**. [LINK DO REPOSITÓRIO CENTRAL DA METODOLOGIA].
-- Antes de modificar sistemas relevantes, conferir branch/commit e `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/HANDOFF.md` e as partes necessárias do GDD.
-- Preservar código e assets aprovados; não começar do zero se já existir um projeto. Não trocar engine ou arquitetura sem justificar e aprovar mudança significativa.
-- Rodar testes aplicáveis: [COMANDO BUILD] / [COMANDO TESTES]. Registrar evidências reais; quando não rodar, marcar NÃO TESTADO.
-- Evitar sprites genéricos, animações deformadas e imitações sem licença. Respeitar a direção artística específica deste jogo.
-- Antes de encerrar: atualizar estado, decisões novas e handoff; fazer commit/PR apenas com acesso/autorização, informar branch e hash/PR.
+Projeto: **[NOME]** · Método: Prompt Mestre Universal **V4.0** — [URL DO REPOSITÓRIO CENTRAL, de preferência fixada em tag/commit]/PROMPT_MESTRE.md
+
+## Regras essenciais (resumo; valem mesmo sem acesso ao repositório central)
+1. Antes de agir: confira branch/commit e leia `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/TAREFAS.md` e o handoff da tarefa.
+2. **Evidência:** relatório de entrega com rótulos EXECUTADO (ou EXECUTADO (EMULADO)) / SÓ LIDO / NÃO VERIFICADO. Nunca invente testes, assets, logs ou resultados. Placeholder só se declarado provisório.
+3. **Sprites:** proibido desenhar personagens/cenários por código, inclusive como placeholder. Placeholder = imagem-conceito aprovada, estática. Phaser/Pixi/Godot web como renderizador são permitidos; animar imagens aprovadas é permitido.
+4. **Visual primeiro:** antes de gerar os assets finais, crie o **Pacote de Aprovação Visual** mínimo (tela inicial com animação leve planejada, personagem, rival, cenário/mapa, HUD), mostre uma imagem por vez e espere o **Portão V** (3 sim/não do dono). A produção completa de sprites só começa depois dos Portões V e 1.
+5. **Qualidade:** Portão 1 (3 sim/não do dono), Portão 2 (scorecard, média ≥ 8, nenhum < 6), Portão 3 (concluído). A nota da IA é hipótese; vale a do dono.
+6. **Assets:** nomes/caminhos estáveis, manifesto em `docs/MANIFESTO_ASSETS.md`, proveniência de cada asset de IA, estimativa de custo antes de gerar em lote, lotes reprovados registrados.
+7. **Modelos:** criativo = [modelo forte]; execução = [modelo barato]. Escalar só em decisão de design/arquitetura ou após 2 tentativas que não passaram no critério de pronto.
+8. **Várias IAs:** uma tarefa = um responsável = uma branch (`claude/<id>-...`, `codex/<id>-...`, ou o nome imposto pela ferramenta). A IA executora **não edita** `docs/TAREFAS.md` nem `docs/ESTADO_ATUAL.md`: escreve `docs/handoff/T-xxx.md` e a descrição do PR. O integrador (indicado em DECISOES; padrão: o dono) atualiza no merge.
+9. Não mude decisões aprovadas sem informar e registrar. Gastos, publicação e ações externas exigem autorização do dono. Preserve código e assets aprovados; não recomece do zero nem troque engine sem justificar e aprovar.
+10. Ao encerrar: commit/PR apenas com acesso e autorização; informe branch e hash/PR; sem isso, declare NÃO SINCRONIZADO.
+
+## Projeto
+- Build: [COMANDO BUILD] · Testes: [COMANDO TESTES]
+- Alvo/engine/resolução-base: [preencher]
+- Desempenho alvo (ponto de partida): média ≥ 55 FPS e carga ≤ 5 s no aparelho-alvo.
+
+## Codex
+[Instruções que valem só para o Codex, se houver.]

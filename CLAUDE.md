@@ -1,11 +1,10 @@
-# CLAUDE.md — Orientações para Claude Code
+@AGENTS.md
 
-Este repositório contém a metodologia universal, não o projeto de um jogo. Siga também as convenções compartilhadas de `AGENTS.md` para manter consistência entre agentes. Quando a tarefa for criar ou revisar jogos, consulte `PROMPT_MESTRE_UNIVERSAL_GAMES_IA_V3_1.md` e os modelos necessários; não releia tudo em tarefas triviais.
+# Claude Code — específico do Claude
 
-Antes de editar: confira o repositório correto, branch/commit atual e decisões aprovadas. Em cada projeto real, leia o estado e o handoff do **repositório daquele jogo**; não presuma que uma conversa anterior ou outro agente foi sincronizado.
+As regras compartilhadas estão em `AGENTS.md` (importado acima). Aqui fica só o que é do Claude.
 
-Depois de alterar: atualize documentação pertinente e registre arquivos, testes efetivos, falhas e próxima ação. Faça commit/PR apenas quando permitido e informe explicitamente se a mudança chegou à branch canônica.
-
-A biblioteca pública opcional de skills está explicada na seção 9 do Prompt Mestre V3.1. Verifique se é acessível e se está instalada/configurada antes de afirmar execução do roteador; consulta de página pública não significa plugin instalado.
-
-Não use informação antiga de chats como prova de que um recurso funciona. Não invente arquivos ou testes nem substitua assets oficiais. Em divergências, sinalize o conflito e preserve as decisões aprovadas.
+- **Modelos:** parte criativa (conceito, história, direção de arte, especificação de assets) no modelo mais forte (Fable); execução (código, ajustes, integração) no Sonnet; Opus não é padrão. Detalhes em `modulos/MODELOS_E_PARALELISMO.md`.
+- Neste repositório de metodologia, não releia tudo em tarefa trivial.
+- Em projeto real, leia estado, decisões, handoff e tarefas do **repositório do jogo**.
+- Commit/PR só quando permitido; informe se a mudança chegou à branch canônica.
