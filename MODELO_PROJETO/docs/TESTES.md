@@ -7,9 +7,9 @@
 Navegador headless: abre · 0 erros no console · ~60 s de entradas simuladas · screenshot. Rótulo EXECUTADO (EMULADO). Não substitui o aparelho.
 
 ## Playtests
-| Data | Versão | Jogadores | Achados observados | Decisão |
+| Data | Versão | Jogadores (de fora?) | Achados observados | Decisão |
 |---|---|---|---|---|
 
-## Scorecard
-| Portão | Data | Notas 1–8 | Média | Quem pontuou | Evidências |
+## Scorecard (8 dimensões, cada uma de 0 a 10)
+| Portão | Data | Nota de cada dimensão (1–8) | Média | Quem pontuou | Evidências |
 |---|---|---|---|---|---|

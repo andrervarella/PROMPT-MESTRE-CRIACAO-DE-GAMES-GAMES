@@ -8,7 +8,7 @@ Objetivo: mesmas normas, sem se atropelar, sem depender de memória de chat. Ref
 - **`CLAUDE.md` é fino:** a linha `@AGENTS.md` mais só o específico do Claude. **Não conte com o Codex lendo CLAUDE.md**; por isso nada compartilhado mora lá.
 - Mantenha o AGENTS.md curto (~200 linhas, bem abaixo de 32 KiB; o Codex para de ler em torno disso por padrão). Detalhes ficam em `docs/`.
 - O arquivo mais próximo da pasta de trabalho tem precedência em várias ferramentas; evite AGENTS.md/CLAUDE.md conflitantes em pastas superiores.
-- Relatos de setembro de 2026 dizem que o Claude Code aceita AGENTS.md quando não há CLAUDE.md. **Não verificado por nós**; o wrapper `@AGENTS.md` funciona nos dois casos.
+- Relatos de 2026 (fonte secundária) dizem que o Claude Code lê AGENTS.md nativamente, mas o **ignora** se existir um CLAUDE.md sem `@AGENTS.md`. **Não verificado por nós na documentação oficial**; o wrapper `@AGENTS.md` funciona em qualquer caso.
 - **Chats** (ChatGPT, claude.ai) **não carregam esses arquivos sozinhos**: o dono cola o núcleo ou o link, e a IA declara o que realmente conseguiu abrir.
 - O `AGENTS.md` do jogo deve ser **autossuficiente** (resumo das regras essenciais dentro dele), porque agente sem rede não busca outro repositório.
 
@@ -31,20 +31,24 @@ Para pedido pequeno e direto do dono, a ordem de serviço completa não é obrig
 
 ## 3. Quem escreve onde (evita conflito de merge)
 
-- **Uma IA só no projeto (modo solo):** ela atualiza ESTADO_ATUAL e HANDOFF ao fim da sessão.
-- **Várias IAs (modo colaborativo):**
+Haver dois modos; sem indicação em `docs/DECISOES.md`, vale o **revezamento**.
+
+- **Revezamento (uma IA por vez; padrão do dono) e modo solo:** a IA que está com a vez atualiza `docs/ESTADO_ATUAL.md` e `docs/HANDOFF.md` no último commit da sessão. Não há integrador humano obrigatório por tarefa.
+- **Colaborativo (duas IAs ao mesmo tempo):**
   - A **IA executora NÃO edita** `docs/TAREFAS.md` nem `docs/ESTADO_ATUAL.md`.
   - Ela escreve **só** `docs/handoff/T-xxx.md` (um arquivo por tarefa) e a descrição do PR.
   - O **integrador** atualiza TAREFAS e ESTADO ao fazer o merge, na branch canônica.
   - **Integrador padrão: o dono do projeto**, se `docs/DECISOES.md` não indicar outro.
+- **"Handoff mais recente"** = `docs/HANDOFF.md` (revezamento/solo) ou o `docs/handoff/T-xxx.md` mais novo (colaborativo).
 - **Atribuição:** quem atribui tarefas é o dono ou o integrador. A IA só começa tarefa atribuída a ela.
 - Duas tarefas não editam o mesmo arquivo ao mesmo tempo.
 
 ## 4. Branches e PR
 
-- Padrão: `claude/<id>-<slug>` e `codex/<id>-<slug>`. Se a ferramenta impuser outro nome, **use o dela e registre em TAREFAS** (feito pelo integrador).
-- Sem commit direto na `main` em trabalho colaborativo. Toda entrega é **PR** com: o que mudou, evidências (rótulos do Contrato), o que não foi testado, decisão pedida.
+- **Revezamento:** use uma **branch de trabalho única** (`dev`) para todas as IAs, uma por vez, sem PR por tarefa. O merge para `main` acontece **nos portões** (V, 1, 2, 3) com aprovação do dono. Assim a IA que chega sempre lê o trabalho mais recente em `dev`.
+- **Colaborativo:** `claude/<id>-<slug>` e `codex/<id>-<slug>`. Se a ferramenta impuser outro nome, **use o dela e registre em TAREFAS** (feito pelo integrador). Sem commit direto na `main`. Toda entrega é **PR** com: o que mudou, evidências (rótulos do Contrato), o que não foi testado, decisão pedida.
 - Antes de começar: buscar o remoto e conferir branch/commit. Ao terminar: informar o hash.
+- Marcos: tag a cada portão aprovado (`portao-v`, `portao-1`, `portao-2`, `v1.0`).
 
 ## 5. Mensagem de entrega (5 linhas)
 
@@ -56,13 +60,13 @@ DECISÃO PEDIDA: ... (ou "nenhuma")
 PRÓXIMA AÇÃO: arquivo + critério de aceitação
 ```
 
-A versão longa vai em `docs/handoff/T-xxx.md` (colaborativo) ou `docs/HANDOFF.md` (solo).
+A versão longa vai em `docs/handoff/T-xxx.md` (colaborativo) ou `docs/HANDOFF.md` (revezamento/solo).
 
 ## 6. Conflitos e divergências
 
 - Vale `docs/DECISOES.md`. Sem decisão registrada, **escale ao dono com 2 opções** e uma recomendação.
 - Não reescreva o trabalho do outro; proponha por PR ou comentário.
-- Se o ESTADO_ATUAL contradiz o código/Git, verifique e sinalize a divergência.
+- Se o ESTADO_ATUAL contradiz o código/Git, vale o Git: verifique e sinalize a divergência.
 
 ## 7. Papéis e modelos
 
@@ -74,9 +78,9 @@ Qualquer etapa pode ser feita por qualquer IA, em qualquer ordem. Exemplo: a ide
 
 **Quando o dono diz "o jogo X está no Codex, veja como está e continue":**
 
-1. Abra o repositório do jogo e confira branch e último commit (seção 1 do `PROMPT_MESTRE.md`).
+1. **Liste as branches e os PRs abertos** do repositório do jogo. Se houver PR aberto da outra IA (ou a branch `dev`), o estado mais recente é o dele, **não a `main`**. Continue a partir daquela branch ou peça ao dono o merge; nunca parta da `main` ignorando o trabalho pendente.
 2. Aplique a **regra anti-sobrescrita** abaixo.
-3. Leia `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/TAREFAS.md` e o handoff mais recente. Não precisa de ordem de serviço formal para continuar.
+3. Leia `docs/ESTADO_ATUAL.md` (obrigatório) e, se a tarefa tocar neles, `docs/DECISOES.md`, `docs/TAREFAS.md` e o handoff mais recente. Não precisa de ordem de serviço formal para continuar.
 4. Responda em 5 linhas: o que entendeu do estado, qual é o próximo passo e o que não conseguiu confirmar. Só depois aja.
 
 ### Regra anti-sobrescrita (antes de editar qualquer coisa)
@@ -84,13 +88,13 @@ Qualquer etapa pode ser feita por qualquer IA, em qualquer ordem. Exemplo: a ide
 O risco: a IA que chega trabalha sobre uma versão antiga e apaga ou contradiz o que a outra acabou de fazer. **A fonte de verdade é o histórico do Git, não as anotações**, porque anotação pode estar incompleta.
 
 1. Busque o estado mais recente da branch: último commit e lista dos commits recentes.
-2. Compare com o commit registrado em `ESTADO_ATUAL.md` e no handoff mais recente. Se existirem commits **depois** do último registrado, leia o que eles mudaram (arquivos e diferenças) **antes** de tocar em qualquer coisa. Mudança sem anotação: avise o dono e registre.
+2. Compare com o **commit-base** registrado em `ESTADO_ATUAL.md` e no handoff mais recente. Se existirem commits **depois** do registrado, leia o que eles mudaram (arquivos e diferenças) **antes** de tocar em qualquer coisa. Mudança sem anotação: avise o dono e registre.
 3. Crie a branch de trabalho a partir do **último commit**, nunca de uma cópia antiga.
 4. Edite **sobre a versão que acabou de ler** de cada arquivo. Nunca reescreva um arquivo inteiro a partir de memória ou de cópia anterior.
 5. Antes de enviar (push/PR), confira de novo se a branch não andou nesse meio tempo. Se andou, incorpore as mudanças antes de enviar.
 6. Em dúvida, ou se o código contradiz as anotações: **pare e pergunte ao dono**. Não "conserte" por cima.
 
-**Obrigação de quem para de trabalhar:** fazer commit e push e deixar no handoff (a) o hash do último commit, (b) a lista de arquivos alterados, (c) o que ficou pela metade, (d) o próximo passo. Sem isso, a próxima IA parte do zero.
+**Obrigação de quem para de trabalhar:** fazer commit e push (autorizado em `DECISOES.md`, DEC-001) e deixar no handoff (a) o **commit-base** (o último commit antes desta atualização; um arquivo não consegue conter o hash do commit que o grava), (b) a lista de arquivos alterados, (c) o que ficou pela metade, (d) o próximo passo. Sem isso, a próxima IA parte do zero.
 
 **Limites que valem sempre:**
 
