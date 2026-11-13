@@ -14,22 +14,24 @@ Regras:
 1. O criativo entrega **arquivos de especificação** (`docs/GDD.md`, `docs/BIBLIA_VISUAL.md`, `docs/MANIFESTO_ASSETS.md`). A execução só consome.
 2. Escale da execução para o criativo apenas em decisão de arquitetura/design ou após **2 tentativas que não passaram no critério de pronto** da ordem de serviço.
 3. Em chat sem troca automática de modelo, a IA declara em 1 linha o nível que a tarefa pede; o dono troca, ou a tarefa é delegada por subagente quando possível.
-4. Não use o modelo mais caro para tarefa simples.
+4. Não use o modelo mais caro para tarefa simples (exceto onde o dono definiu o contrário, ver mapeamento abaixo).
 
-## Mapeamento atual (preenchido pelo dono; revisar quando os modelos mudarem)
+## Mapeamento atual (definido pelo dono; revisar quando os modelos mudarem)
 
 | Nível | Claude | Codex | ChatGPT |
 |---|---|---|---|
-| CRIATIVO | Fable | (preencher) | (preencher) |
-| EXECUÇÃO | Sonnet | (preencher) | (preencher) |
+| CRIATIVO | Fable | modelo mais forte disponível no plano | (preencher) |
+| EXECUÇÃO | Sonnet | modelo mais forte disponível no plano (escolha do dono: usa sempre o máximo) | (preencher) |
 
-No Claude, Opus não é usado por padrão (economia de crédito). Campos "(preencher)" ficam em branco de propósito: não inventar nomes de modelos de outros fornecedores.
+No Claude, Opus não é usado por padrão (economia de crédito). No Codex, o dono usa sempre o modelo mais inteligente (o que mais gasta crédito); o **nome exato não está registrado** de propósito, porque nomes mudam e não devem ser inventados. Campos "(preencher)" ficam em branco de propósito.
+
+Observação de custo: o modelo máximo no Codex consome o plano mais rápido. Se o limite apertar, o dono pode trocar para um modelo menor nas tarefas de execução simples; isso não exige mudar o método.
 
 ## Planos do dono (contexto de custo)
 
 O dono usa planos **iniciais/baratos**: Claude (~R$100/mês) e Codex (~R$100/mês). Créditos e limites de uso são finitos. Consequências:
 
-1. **Gaste o forte só onde rende:** conceito, pacote visual e bíblia visual. Todo o resto no modelo de execução.
+1. **Gaste o forte só onde rende:** conceito, pacote visual e bíblia visual. No Claude, todo o resto no modelo de execução.
 2. **Aprovar antes de produzir** (Pacote de Aprovação Visual) é também economia: evita refazer lotes inteiros de sprites.
 3. **Reparta o trabalho entre os dois planos:** se um chegar perto do limite, a tarefa passa para a outra IA via ordem de serviço, sem esperar.
 4. Antes de gerar em lote (imagens, áudio, vídeo), mostre a **estimativa de custo/uso** e peça confirmação.
