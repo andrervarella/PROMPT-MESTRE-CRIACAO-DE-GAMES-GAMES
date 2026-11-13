@@ -2,16 +2,20 @@
 
 Registra **mudanças aprovadas e publicadas** na metodologia universal. Não confundir com mudanças em jogos específicos.
 
-## [4.1] — 2026-11-13 (proposta via PR #2; vale após merge)
+## [4.1] — 2026-11-13 (PR #2)
 
-**Motivo:** pedido do dono de poder trocar de IA a qualquer momento sem uma sobrescrever a outra, e revisão independente do Fable (média 6,6 de 10 na V4.0 com o PR #2 parcial; as 4 lacunas P0 e as P1 foram aplicadas aqui). Nenhuma nota nova foi dada à V4.1.
+**Motivo:** pedido do dono de poder trocar de IA a qualquer momento sem uma sobrescrever a outra; revisão independente do Fable (média 6,6 de 10 na V4.0 com o PR #2 parcial; as 4 lacunas P0 e as P1 foram aplicadas aqui); e o jeito de trabalhar do dono (jogo completo de uma vez, testador único, áudio em duas fases). Nenhuma nota nova foi dada à V4.1.
 
 - **Troca livre de IA** (`COMUNICACAO` seção 8) e **regra anti-sobrescrita**: vale o histórico do Git, não as anotações; listar branches e PRs abertos; comparar com o commit-base; editar sobre a versão recém-lida; parar e perguntar em caso de contradição.
 - **Revezamento** (uma IA por vez) como modo padrão: a IA com a vez atualiza ESTADO e HANDOFF e usa a branch `dev`; merge na `main` nos portões. O modo colaborativo (executora não edita ESTADO/TAREFAS) só vale com duas IAs ao mesmo tempo. Corrige a contradição entre README/AGENTS e COMUNICACAO.
+- **Modo "jogo completo"** (`MODO_JOGO_COMPLETO`): o dono aprova imagens-amostra e história no começo; depois a IA toca o jogo inteiro em sequência, parando só no Portão 1, em custos e em bloqueios. Escopo do jogo completo fechado no início.
+- **Abertura a sugestões:** o fluxo padrão não é trava; qualquer IA avisa e sugere outro caminho (motivo, 2 opções, recomendação) quando achar que o jogo fica melhor; muda só com o "ok" do dono e registro em DECISOES.
+- **Testador único (dono) aceito** em todos os portões, registrado como "SÓ DONO" (Portão 3: "CONCLUÍDO — SÓ DONO", com aviso do risco de clareza). Jogadores de fora seguem como o ideal (3) e valem mais quando existirem.
+- **Áudio em duas fases:** música durante a produção; efeitos sonoros e vozes por último (ElevenLabs ou outra ferramenta, com acesso dado pelo dono). O código toca pelo nome do evento, então trocar o arquivo não muda o código.
+- **História curta** passa a fazer parte da aprovação inicial.
 - **Lote-piloto de animação** antes do Portão 1 em jogo de ação (~12 quadros), porque imagem estática não prova que o controle obedece.
 - **Link jogável de teste** definido na decisão técnica e entregue em todo checkpoint.
-- **Novos módulos:** `ESCOPO_E_ORCAMENTO` (frase do jogo, pergunta do protótipo, lista de cortes, critério de descarte, orçamento por fase, tags de marco; números são proposta sem fonte) e `LANCAMENTO_E_RETENCAO`.
-- **Portão 3** exige no mínimo 3 jogadores de fora; sem eles, o estágio é beta. Portão 1 (c) valoriza uma pessoa de fora.
+- **Novos módulos:** `MODO_JOGO_COMPLETO`, `ESCOPO_E_ORCAMENTO` (frase do jogo, pergunta do protótipo, lista de cortes, critério de descarte, orçamento por fase, tags de marco; números são proposta sem fonte) e `LANCAMENTO_E_RETENCAO`.
 - **Templates:** novo `BIBLIA_VISUAL.md`; `ESTADO_ATUAL` com **commit-base** (um arquivo não contém o hash do commit que o grava), estágios mapeados aos portões e limite de ~40 linhas; `DECISOES` com DEC-001 (autorização de push na branch de trabalho, proposta); `TESTES` com coluna de notas esclarecida; abertura de sessão mais barata (ESTADO obrigatório, resto sob demanda).
 - **Consistência:** agentes em paralelo padrão 2–3 (a 4.0 dizia 3–4 antes de ajustar aos planos iniciais); clareza "~30 s o objetivo, ~3 min os controles"; `GAME_FEEL` sem conflito com a regra de não desenhar por código; execução no modelo escolhido pelo dono tratada como exceção explícita; `FONTES` com URLs.
 - **Não comprovado:** nenhum jogo rodou ainda com a V4.x. Claims sobre leitura de AGENTS.md pelo Claude Code seguem de fonte secundária. Tetos de orçamento não têm fonte.

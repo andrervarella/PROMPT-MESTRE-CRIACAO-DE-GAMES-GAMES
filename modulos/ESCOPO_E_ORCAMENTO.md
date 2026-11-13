@@ -11,10 +11,10 @@ Uma frase: **o que o jogador faz, o que tem de interessante, como deve parecer.*
 Cada protótipo responde **UMA pergunta** (ex.: "bater é gostoso?", "o puzzle é compreensível em 30 s?"). Registre a pergunta e a resposta em `docs/DECISOES.md`. Polir um loop sem graça esconde o problema em vez de resolver.
 
 ## 3. Lista de cortes (4 colunas)
-**PRECISA** · **DEVERIA** · **PODERIA** · **NÃO NESTA VERSÃO**. Ideia nova no meio do caminho vai para `docs/PROXIMO_JOGO.md` e só é revista no fim de um marco. Depois do Portão 1, recursos novos só entram trocando por outro de igual tamanho.
+**PRECISA** · **DEVERIA** · **PODERIA** · **NÃO NESTA VERSÃO**. Ideia nova no meio do caminho vai para `docs/PROXIMO_JOGO.md` e só é revista no fim de um marco. Depois do Portão 1, recursos novos só entram trocando por outro de igual tamanho. No modo "jogo completo" (`MODO_JOGO_COMPLETO.md`), o escopo completo é fechado no início.
 
 ## 4. Critério de descarte
-- Portão 1 reprovado **3 vezes**, ou **2 jogadores de fora** que não recomeçam sozinhos: **mude o verbo central ou arquive a ideia.**
+- Portão 1 reprovado **3 vezes**, ou o próprio dono **não recomeça** a jogar de vontade (ou, havendo jogadores de fora, 2 que não recomeçam sozinhos): **mude o verbo central ou arquive a ideia.**
 - Arquivar cedo é resultado válido: registre o aprendizado em `APRENDIZADOS.md`.
 
 ## 5. Orçamento por fase (ponto de partida)

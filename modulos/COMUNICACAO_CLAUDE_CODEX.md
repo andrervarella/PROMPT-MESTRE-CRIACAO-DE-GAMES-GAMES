@@ -31,7 +31,7 @@ Para pedido pequeno e direto do dono, a ordem de serviço completa não é obrig
 
 ## 3. Quem escreve onde (evita conflito de merge)
 
-Haver dois modos; sem indicação em `docs/DECISOES.md`, vale o **revezamento**.
+Há dois modos; sem indicação em `docs/DECISOES.md`, vale o **revezamento**.
 
 - **Revezamento (uma IA por vez; padrão do dono) e modo solo:** a IA que está com a vez atualiza `docs/ESTADO_ATUAL.md` e `docs/HANDOFF.md` no último commit da sessão. Não há integrador humano obrigatório por tarefa.
 - **Colaborativo (duas IAs ao mesmo tempo):**
@@ -74,7 +74,7 @@ Papéis (especifica, implementa, revisa, integra) são definidos **por tarefa**,
 
 ## 8. Trocar de IA a qualquer momento (não há ordem fixa)
 
-Qualquer etapa pode ser feita por qualquer IA, em qualquer ordem. Exemplo: a ideia nasce no Claude, os assets saem no Codex (que tem o conector do Pixel Lab) e o jogo volta ao Claude depois. O método existe para que as duas IAs trabalhem do mesmo jeito, não para impor quem faz o quê.
+Qualquer etapa pode ser feita por qualquer IA, em qualquer ordem. Exemplo: a ideia nasce no Claude, os assets saem no Codex (que tem o conector do Pixel Lab) e o jogo volta ao Claude depois. O método existe para que as duas IAs trabalhem do mesmo jeito, não para impor quem faz o quê. Qualquer das IAs pode **sugerir outro caminho** ao dono quando achar que o jogo fica melhor (veja `MODO_JOGO_COMPLETO.md`).
 
 **Quando o dono diz "o jogo X está no Codex, veja como está e continue":**
 

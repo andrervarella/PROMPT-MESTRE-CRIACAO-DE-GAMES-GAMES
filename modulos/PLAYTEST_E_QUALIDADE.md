@@ -6,8 +6,8 @@ Objetivo: tornar "o jogo está bom?" **operável e mensurável**. Usado nos Port
 
 ## Quem pontua
 
-- **Quem dá a nota é o dono.** A IA só propõe nota **com evidência** (ex.: "3 de 4 jogadores não acharam o botão de pausa"). Jogador não dá nota em 8 dimensões: ele **joga e é observado**.
-- Jogadores reais entram como **achados observados**. Sem jogadores, registre "SÓ DONO" (aceito no Portão 2; **não** no Portão 3).
+- **Quem dá a nota é o dono.** A IA só propõe nota **com evidência** (ex.: "o checklist de clareza falhou em 2 itens"). Jogador de fora não dá nota em 8 dimensões: ele **joga e é observado**.
+- **Testador único (o dono) é aceito**, por decisão dele. Registre como **"SÓ DONO"** em qualquer portão. Jogadores de fora, quando existirem, entram como **achados observados** e valem mais que a opinião do dono.
 - Nota sem evidência vale NÃO VERIFICADO.
 
 ## Portão 1 — prova do core loop (3 perguntas sim/não ao dono)
@@ -16,7 +16,7 @@ Objetivo: tornar "o jogo está bom?" **operável e mensurável**. Usado nos Port
 2. O controle obedeceu?
 3. Joguei de novo sem ninguém pedir?
 
-**Três "sim" passam.** A pergunta 3 vale mais quando feita a **1 pessoa que nunca viu o jogo** (observe se ela recomeça sozinha). Jogo de ação: use o lote-piloto de animação, não só imagem parada. Reprovou 3 vezes: critério de descarte em `ESCOPO_E_ORCAMENTO.md`.
+**Três "sim" passam.** Jogo de ação: use o lote-piloto de animação, não só imagem parada. Reprovou 3 vezes: critério de descarte em `ESCOPO_E_ORCAMENTO.md`.
 
 ## Portão 2 e 3 — scorecard 0–10 (nota do dono)
 
@@ -34,9 +34,9 @@ Objetivo: tornar "o jogo está bom?" **operável e mensurável**. Usado nos Port
 **Âncoras:** **6** = funciona, com atrito. **8** = sem atrito observado. **10** = jogador elogia ou quer mostrar espontaneamente.
 
 **Portão 2 (vertical slice):** média ≥ 8 e nenhum item < 6.
-**Portão 3 (Concluído):** mesmo critério, aplicado ao jogo completo, com smoke test e teste no aparelho feitos e **no mínimo 3 jogadores de fora observados**. Sem eles, o estágio declarado é **beta**.
+**Portão 3 (Concluído):** mesmo critério, aplicado ao jogo completo, com smoke test e teste no aparelho feitos. **O ideal são 3 jogadores de fora observados.** Se o dono for o único testador, o estágio declarado é **"CONCLUÍDO — SÓ DONO"**: vale, mas a IA avisa que falhas de clareza costumam aparecer só com gente de fora.
 
-## Protocolo de playtest
+## Protocolo de playtest (quando houver jogadores de fora)
 
 1. **Quem:** 3 a 5 pessoas do público-alvo (poucos testes já mostram os problemas mais comuns). Quem não conhece o jogo vale mais que amigo próximo.
 2. **Preparação:** 1 ou 2 dúvidas por sessão (ex.: "entendem o pulo duplo?") e um **checklist de observação**.
