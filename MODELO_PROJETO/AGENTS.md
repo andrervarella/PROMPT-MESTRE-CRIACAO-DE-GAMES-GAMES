@@ -3,16 +3,16 @@
 Projeto: **[NOME]** · Método: Prompt Mestre Universal **V4.0** — [URL DO REPOSITÓRIO CENTRAL, de preferência fixada em tag/commit]/PROMPT_MESTRE.md
 
 ## Regras essenciais (resumo; valem mesmo sem acesso ao repositório central)
-1. Antes de agir: confira branch/commit e leia `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/TAREFAS.md` e o handoff da tarefa.
+1. **Antes de agir (vale ao assumir um jogo que outra IA mexeu):** busque o estado mais recente da branch, compare o último commit com o registrado em `docs/ESTADO_ATUAL.md` e no handoff mais recente. Se houver commits depois do registrado, leia o que mudaram **antes** de editar. Crie sua branch a partir do último commit e edite sempre sobre a versão recém-lida dos arquivos; nunca reescreva arquivo inteiro de uma cópia antiga. Antes de enviar, confira de novo se a branch não andou. Em dúvida ou contradição: pare e pergunte ao dono. Leia também `docs/DECISOES.md`, `docs/TAREFAS.md` e o handoff da tarefa.
 2. **Evidência:** relatório de entrega com rótulos EXECUTADO (ou EXECUTADO (EMULADO)) / SÓ LIDO / NÃO VERIFICADO. Nunca invente testes, assets, logs ou resultados. Placeholder só se declarado provisório.
 3. **Sprites:** proibido desenhar personagens/cenários por código, inclusive como placeholder. Placeholder = imagem-conceito aprovada, estática. Phaser/Pixi/Godot web como renderizador são permitidos; animar imagens aprovadas é permitido.
-4. **Visual primeiro:** antes de gerar os assets finais, crie o **Pacote de Aprovação Visual** mínimo (tela inicial com animação leve planejada, personagem, rival, cenário/mapa, HUD), mostre uma imagem por vez e espere o **Portão V** (3 sim/não do dono). A produção completa de sprites só começa depois dos Portões V e 1.
+4. **Visual primeiro:** antes de gerar os assets finais, crie o **Pacote de Aprovação Visual** mínimo (tela inicial com animação leve planejada, personagem, rival, cenário/mapa, HUD), mostre uma imagem por vez e espere o **Portão V** (3 sim/não do dono). A produção completa de sprites só começa depois dos Portões V e 1. O personagem aprovado fica no repositório (ex.: `concept/`) como referência fixa para qualquer IA.
 5. **Qualidade:** Portão 1 (3 sim/não do dono), Portão 2 (scorecard, média ≥ 8, nenhum < 6), Portão 3 (concluído). A nota da IA é hipótese; vale a do dono.
 6. **Assets:** nomes/caminhos estáveis, manifesto em `docs/MANIFESTO_ASSETS.md`, proveniência de cada asset de IA, estimativa de custo antes de gerar em lote, lotes reprovados registrados.
 7. **Modelos:** criativo = [modelo forte]; execução = [modelo barato]. Escalar só em decisão de design/arquitetura ou após 2 tentativas que não passaram no critério de pronto.
 8. **Várias IAs:** uma tarefa = um responsável = uma branch (`claude/<id>-...`, `codex/<id>-...`, ou o nome imposto pela ferramenta). A IA executora **não edita** `docs/TAREFAS.md` nem `docs/ESTADO_ATUAL.md`: escreve `docs/handoff/T-xxx.md` e a descrição do PR. O integrador (indicado em DECISOES; padrão: o dono) atualiza no merge.
 9. Não mude decisões aprovadas sem informar e registrar. Gastos, publicação e ações externas exigem autorização do dono. Preserve código e assets aprovados; não recomece do zero nem troque engine sem justificar e aprovar.
-10. Ao encerrar: commit/PR apenas com acesso e autorização; informe branch e hash/PR; sem isso, declare NÃO SINCRONIZADO.
+10. **Ao parar de trabalhar:** faça commit e push (com autorização) e deixe no handoff o hash do último commit, os arquivos alterados, o que ficou pela metade e o próximo passo. Sem commit/push publicado, declare NÃO SINCRONIZADO.
 
 ## Projeto
 - Build: [COMANDO BUILD] · Testes: [COMANDO TESTES]

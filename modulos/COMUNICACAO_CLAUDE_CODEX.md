@@ -75,9 +75,22 @@ Qualquer etapa pode ser feita por qualquer IA, em qualquer ordem. Exemplo: a ide
 **Quando o dono diz "o jogo X está no Codex, veja como está e continue":**
 
 1. Abra o repositório do jogo e confira branch e último commit (seção 1 do `PROMPT_MESTRE.md`).
-2. Leia `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/TAREFAS.md` e o handoff mais recente. Não precisa de ordem de serviço formal para continuar.
-3. Responda em 5 linhas: o que entendeu do estado, qual é o próximo passo e o que não conseguiu confirmar. Só depois aja.
-4. Ao parar, atualize o handoff para a próxima IA (ou o próprio dono) começar sem perguntar nada.
+2. Aplique a **regra anti-sobrescrita** abaixo.
+3. Leia `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/TAREFAS.md` e o handoff mais recente. Não precisa de ordem de serviço formal para continuar.
+4. Responda em 5 linhas: o que entendeu do estado, qual é o próximo passo e o que não conseguiu confirmar. Só depois aja.
+
+### Regra anti-sobrescrita (antes de editar qualquer coisa)
+
+O risco: a IA que chega trabalha sobre uma versão antiga e apaga ou contradiz o que a outra acabou de fazer. **A fonte de verdade é o histórico do Git, não as anotações**, porque anotação pode estar incompleta.
+
+1. Busque o estado mais recente da branch: último commit e lista dos commits recentes.
+2. Compare com o commit registrado em `ESTADO_ATUAL.md` e no handoff mais recente. Se existirem commits **depois** do último registrado, leia o que eles mudaram (arquivos e diferenças) **antes** de tocar em qualquer coisa. Mudança sem anotação: avise o dono e registre.
+3. Crie a branch de trabalho a partir do **último commit**, nunca de uma cópia antiga.
+4. Edite **sobre a versão que acabou de ler** de cada arquivo. Nunca reescreva um arquivo inteiro a partir de memória ou de cópia anterior.
+5. Antes de enviar (push/PR), confira de novo se a branch não andou nesse meio tempo. Se andou, incorpore as mudanças antes de enviar.
+6. Em dúvida, ou se o código contradiz as anotações: **pare e pergunte ao dono**. Não "conserte" por cima.
+
+**Obrigação de quem para de trabalhar:** fazer commit e push e deixar no handoff (a) o hash do último commit, (b) a lista de arquivos alterados, (c) o que ficou pela metade, (d) o próximo passo. Sem isso, a próxima IA parte do zero.
 
 **Limites que valem sempre:**
 
