@@ -27,6 +27,8 @@ Teto de custo: (se usar serviço pago)
 Entrega: PR / arquivo / build, com hash
 ```
 
+Para pedido pequeno e direto do dono, a ordem de serviço completa não é obrigatória; vale a seção 8.
+
 ## 3. Quem escreve onde (evita conflito de merge)
 
 - **Uma IA só no projeto (modo solo):** ela atualiza ESTADO_ATUAL e HANDOFF ao fim da sessão.
@@ -65,3 +67,21 @@ A versão longa vai em `docs/handoff/T-xxx.md` (colaborativo) ou `docs/HANDOFF.m
 ## 7. Papéis e modelos
 
 Papéis (especifica, implementa, revisa, integra) são definidos **por tarefa**, na ordem de serviço, e registrados em DECISOES quando forem permanentes. Não presuma capacidades de uma ferramenta sem verificar. O nível de modelo é uma **indicação**: a IA não troca o próprio modelo; ela declara o nível, e o dono troca ou a tarefa é delegada por subagente quando a ferramenta permitir.
+
+## 8. Trocar de IA a qualquer momento (não há ordem fixa)
+
+Qualquer etapa pode ser feita por qualquer IA, em qualquer ordem. Exemplo: a ideia nasce no Claude, os assets saem no Codex (que tem o conector do Pixel Lab) e o jogo volta ao Claude depois. O método existe para que as duas IAs trabalhem do mesmo jeito, não para impor quem faz o quê.
+
+**Quando o dono diz "o jogo X está no Codex, veja como está e continue":**
+
+1. Abra o repositório do jogo e confira branch e último commit (seção 1 do `PROMPT_MESTRE.md`).
+2. Leia `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/TAREFAS.md` e o handoff mais recente. Não precisa de ordem de serviço formal para continuar.
+3. Responda em 5 linhas: o que entendeu do estado, qual é o próximo passo e o que não conseguiu confirmar. Só depois aja.
+4. Ao parar, atualize o handoff para a próxima IA (ou o próprio dono) começar sem perguntar nada.
+
+**Limites que valem sempre:**
+
+- **Só existe o que está no Git.** Uma IA não enxerga a pasta local da outra. Trabalho que ficou só no computador/ambiente de uma IA, sem commit e push, conta como **NÃO SINCRONIZADO**: a IA que recebe pede ao dono que a outra faça commit e push antes de continuar.
+- **Ferramentas diferem por IA** (um conector pode existir só em uma). Cada IA declara as ferramentas que realmente tem. Se a tarefa precisa de uma que só a outra tem, avisa o dono e sugere passar a tarefa, registrando no handoff.
+- **Assets gerados por qualquer IA** entram no `docs/MANIFESTO_ASSETS.md` com proveniência (ferramenta, prompt, seed, data) e seguem o mesmo Portão V. O personagem aprovado precisa estar **no repositório** (ex.: `concept/`) para a outra IA usá-lo como referência fixa, seja quem gerou.
+- Duas IAs **não** trabalham ao mesmo tempo nos mesmos arquivos (seção 3). Em dia de troca, o dono avisa quem está com a vez.
