@@ -3,7 +3,7 @@
 Use na prova do core loop (controle) e no vertical slice (polimento).
 
 ## Princípios
-- **Teste de remoção:** o jogo deve ser envolvente mesmo sem arte, som e história. Se não for, o problema é o controle ou o loop, não falta de polimento.
+- **Teste de remoção:** com as **imagens aprovadas e sem polimento** (sem som, sem efeitos, sem história), o jogo ainda deve ser envolvente. Se não for, o problema é o controle ou o loop, não falta de polimento. (Não use personagem desenhado por código para esse teste.)
 - **Juice ecoa a mecânica.** Cada efeito reforça o que o jogador fez ou o que aconteceu; nada de efeito decorativo aleatório. Efeito que atrapalha a leitura sai.
 - **Visual, som e vibração são desenhados juntos**, não em sequência.
 - Polimento só depois que o core loop está sólido (Portão 1).
