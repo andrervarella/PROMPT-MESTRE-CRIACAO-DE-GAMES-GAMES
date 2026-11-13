@@ -6,6 +6,6 @@ Leia ao produzir ou integrar som. Só depois da prova do core loop; completo no 
 2. **Música** em loop **sem clique** na emenda; duração e BPM combinados com o clima do jogo.
 3. Formatos compatíveis com o alvo (ex.: OGG/MP3), volume normalizado, controle de mute/volume.
 4. **Mobile:** o áudio só toca após o primeiro toque do jogador; trate o desbloqueio.
-5. **Procedência e licença** de cada arquivo no inventário. Nada de música/SFX de terceiros sem direito.
+5. **Proveniência e licença** de cada arquivo no inventário (ferramenta, prompt, data). Nada de música/SFX de terceiros sem direito.
 6. Voz é opcional.
-7. Direção (clima, referências, lista) vem do nível CRIATIVO; geração/integração, conforme ferramentas **realmente disponíveis** (Contrato de Evidência).
+7. Direção (clima, referências, lista) vem do nível CRIATIVO; geração/integração, conforme ferramentas **realmente disponíveis** (Contrato de Evidência). Estimativa de custo antes de gerar em lote.

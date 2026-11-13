@@ -1,6 +1,6 @@
 # MÓDULO — Níveis de modelo e agentes em paralelo
 
-Leia quando for distribuir trabalho entre modelos ou agentes. Referência: seções 2 e 9 do `PROMPT_MESTRE.md`.
+Leia quando for distribuir trabalho entre modelos ou agentes. Referência: seções 2 e 9 do `PROMPT_MESTRE.md`. Para ordem de serviço e branches: `COMUNICACAO_CLAUDE_CODEX.md`.
 
 ## Níveis (por função, não por nome — nomes mudam)
 

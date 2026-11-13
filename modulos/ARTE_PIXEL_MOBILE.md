@@ -8,10 +8,12 @@ Leia ao definir a bíblia visual ou produzir sprites. Referência: seção 8 do 
 - Paleta limitada e documentada.
 - Tamanho de quadro fixo por personagem; **pivô nos pés**; contato com o chão consistente.
 - Atlas de até 2048 px (compatibilidade mobile).
+- Nomes e caminhos estáveis: o placeholder e o asset final têm o mesmo nome (troca sem mexer no código).
 
 ## Geração com IA (ex.: PixelLab)
 - Mantenha um **personagem de referência fixo** e reutilize-o em todo pedido.
 - Registre os **lotes reprovados** e o motivo, para não repetir o erro.
+- Registre **proveniência** de cada asset (ferramenta, prompt, seed, data).
 - Verifique frames: identidade, anatomia, apoios, duplicatas, membros soltos.
 
 ## Mobile

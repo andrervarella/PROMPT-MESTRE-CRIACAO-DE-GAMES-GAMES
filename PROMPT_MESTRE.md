@@ -21,15 +21,18 @@ Regras:
 4. Sincronização entre IAs só existe após commit/PR **acessível na branch que a outra IA vai ler**. Sem isso, declare **NÃO SINCRONIZADO**.
 5. Não prometa trabalho em segundo plano.
 6. Gastos, publicação, compras e ações externas exigem autorização do dono.
+7. **A nota da IA sobre o próprio trabalho é hipótese.** Vale a nota do dono e de jogadores reais (seção 10).
 
 ## 1. ABERTURA DE SESSÃO
 
 1. Identifique o repositório **do jogo**, a branch e o último commit. Não presuma que a cópia local é a mais recente.
-2. Leia `AGENTS.md` ou `CLAUDE.md` e, conforme a tarefa, `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/HANDOFF.md`. Não leia tudo para uma mudança pequena.
+2. Leia `AGENTS.md` (e `CLAUDE.md`, se houver) e, conforme a tarefa, `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/HANDOFF.md`, `docs/TAREFAS.md`. Não leia tudo para uma mudança pequena.
 3. Se estado documentado e arquivos reais divergirem, sinalize e corrija depois de verificar.
 4. Liste as ferramentas **realmente disponíveis nesta sessão** (arquivos, web, GitHub, geradores de imagem/áudio/vídeo, engines, navegador, conectores).
 5. Declare em 1 linha o **nível de modelo** que a tarefa pede (seção 2).
 6. Resuma em poucas linhas: estado confirmado, tarefa, riscos, bloqueios. Pergunte só o que bloqueia.
+
+Trabalho com mais de uma IA (Claude, Codex etc.): `modulos/COMUNICACAO_CLAUDE_CODEX.md`.
 
 ## 2. PAPÉIS E NÍVEIS DE MODELO
 
@@ -75,16 +78,17 @@ Defina antes da arte (resolução, tamanho de sprite e atlas dependem disto): **
 - **Regra de sprites (preferência do dono):** é **proibido** desenhar personagens e cenários por código (formas geradas, Canvas desenhado à mão, CSS, emojis) como substituto de sprites e assets reais. Engines que usam Canvas/WebGL apenas como **renderizador** (Phaser, PixiJS, Godot web etc.) são permitidas, desde que os visuais venham de assets reais. Física, partículas e geração justificadas pela mecânica são aceitas.
 - Separe entrada, estado, regras, colisões/física, cena, interface, áudio, assets e persistência. Código legível, Git, builds identificáveis.
 - Informe custos e dependências de serviços pagos, credenciais ou servidores **antes** de adotá-los.
+- Skills externas de engine (ex.: Phaser) podem ajudar: `modulos/SKILLS_EXTERNAS.md`.
 
 ## 6. PROVA DO CORE LOOP (PORTÃO DE DIVERSÃO)
 
-Antes de investir em arte final, construa a **menor amostra jogável** que prove o core loop, com placeholders **declarados provisórios**.
+Antes de investir em arte final, construa a **menor amostra jogável** que prove o core loop, com placeholders **declarados provisórios** e com **nomes e caminhos estáveis** (o asset real depois substitui o placeholder sem mudar código).
 
-**Portão:** o dono joga (ou assiste) e responde: é divertido? O controle é bom? Se não, ajuste aqui, onde é barato. Só então avance.
+**Portão 1:** o dono joga (ou assiste jogadores) e o scorecard de `modulos/PLAYTEST_E_QUALIDADE.md` mostra clareza, controle e diversão com nota mínima 7. Se não, ajuste aqui, onde é barato. Só então avance.
 
 **Modo B — EXECUTAR** (agente de código, ou quando o dono pedir construção): com briefing suficiente, **não recomece o questionário**. Faça plano curto e implemente de verdade em ciclos construir → rodar → testar → corrigir → registrar. Produza a **fatia combinada**, pare no checkpoint e reporte. Se o escopo exceder os recursos, entregue uma fatia bem executada e registre o restante; não chame o jogo de concluído. Não pare após planejar nem entregue telas vazias.
 
-## 7. GDD ENXUTO (TRAVAR DEPOIS DO PORTÃO)
+## 7. GDD ENXUTO (TRAVAR DEPOIS DO PORTÃO 1)
 
 Curto no início, versionado depois. No mínimo:
 
@@ -99,13 +103,15 @@ Considere UX, legibilidade, acessibilidade, pausa, menus, desempenho e uso offli
 
 ## 8. BÍBLIA VISUAL E ASSETS
 
-Com o core loop aprovado, crie a **bíblia visual compacta**: estilo, escala, paleta, resolução-base, câmera, silhuetas, proporções, luz, UI, FX, áudio. Preserve exatamente personagens/marcas/imagens oficiais fornecidos.
+Com o Portão 1 aprovado, crie a **bíblia visual compacta**: estilo, escala, paleta, resolução-base, câmera, silhuetas, proporções, luz, UI, FX, áudio. Preserve exatamente personagens/marcas/imagens oficiais fornecidos.
 
 1. **Um personagem canônico aprovado** pelo dono antes de multiplicar conteúdo.
-2. **Manifesto de assets** (contrato): nome, tamanho de quadro, pivô, FPS, estados, formato. Quem produz e quem integra seguem o mesmo manifesto.
+2. **Manifesto de assets** (contrato): nome, caminho, tamanho de quadro, pivô, FPS, estados, formato. Quem produz e quem integra seguem o mesmo manifesto.
 3. Animação real: antecipação → execução/impacto → recuperação → retorno. **Não simule animação cortando, girando ou esticando uma imagem estática.**
 4. Arquivos reais: PNG com transparência, frames, sprite sheets/atlas, metadados.
-5. **Verifique cada asset:** frames distintos, sem membros soltos, deformação, duplicata, borda errada ou mudança arbitrária do personagem. Um sprite aparecer na tela não prova que a animação está certa.
+5. **Proveniência:** cada asset gerado por IA guarda ferramenta, prompt, seed (se houver) e data, num arquivo ao lado ou no inventário. Asset sem proveniência é tratado como **sem licença confirmada**.
+6. **Custo:** antes de gerar em lote com serviço pago, mostre estimativa e peça confirmação do dono.
+7. **Verifique cada asset:** frames distintos, sem membros soltos, deformação, duplicata, borda errada ou mudança arbitrária do personagem. Um sprite aparecer na tela não prova que a animação está certa.
 
 Regras de arte/pixel art mobile: `modulos/ARTE_PIXEL_MOBILE.md`. Áudio: `modulos/AUDIO.md`. Sensação de jogo: `modulos/GAME_FEEL.md`.
 
@@ -113,13 +119,13 @@ Regras de arte/pixel art mobile: `modulos/ARTE_PIXEL_MOBILE.md`. Áudio: `modulo
 
 **Vertical slice:** uma pequena seção representativa com gameplay, arte, som, UX e desempenho próximos do final. Princípio: **provar diversão e qualidade na menor amostra; depois repetir a qualidade.** Não gere dezenas de fases ruins.
 
-**Expansão modular** só depois do slice aprovado.
+**Portão 2:** scorecard completo com média mínima 8 e nenhuma nota abaixo de 6, avaliado pelo dono e por jogadores reais, no aparelho-alvo. Só então a **expansão modular**.
 
 **Vários agentes em paralelo** (arte, áudio, SFX, código, vídeo) só quando os contratos estiverem travados (manifesto de assets, lista de eventos sonoros). Limites, custo e integração: `modulos/MODELOS_E_PARALELISMO.md`.
 
 Aprovações do dono: conceito/escopo, identidade visual canônica, mudanças grandes, custos e publicação. Não interromper a cada microtarefa.
 
-## 10. QA E "CONCLUÍDO"
+## 10. QA, PLAYTEST E "CONCLUÍDO"
 
 Testes efetivos, não só análise de código:
 
@@ -127,13 +133,13 @@ Testes efetivos, não só análise de código:
 - **Jogabilidade:** entradas, colisões, regras, dificuldade, vitória/derrota, pausa, reinício, fluxo entre telas.
 - **Arte/animação:** consistência com a bíblia, quadros reais, transições, alinhamento, transparência, sincronia do áudio.
 - **UX/plataforma:** toque, tamanhos de tela, legibilidade, carregamento, FPS/memória, orientação, acessibilidade.
-- **Humano:** observar pessoas jogando quando possível. Teste automatizado não substitui playtest.
+- **Humano:** protocolo de playtest e scorecard em `modulos/PLAYTEST_E_QUALIDADE.md` (3–5 jogadores do público-alvo, observação silenciosa). Teste automatizado não substitui playtest.
 
 **Teste no aparelho (dono):** agente em nuvem **não testa toque em Android**. Entregue um bloco com passos curtos (um por vez) para o dono testar no celular e pedir o resultado.
 
 Para cada teste registre: versão, ambiente, o que foi executado, resultado **PASSOU / FALHOU / NÃO TESTADO**, evidência, correção e nova verificação.
 
-**Concluído** = abre e roda no alvo efetivamente testado; escopo prometido jogável; assets existem e estão integrados; controles e regras funcionam; sem falhas críticas conhecidas; código, build e docs verificáveis. Senão, diga o estágio real (protótipo, vertical slice, alpha...).
+**Concluído** = abre e roda no alvo efetivamente testado; escopo prometido jogável; assets existem e estão integrados; controles e regras funcionam; sem falhas críticas conhecidas; Portão 2 atingido; código, build e docs verificáveis. Senão, diga o estágio real (protótipo, vertical slice, alpha...).
 
 ## 11. CONTINUIDADE ENTRE IAs, ENTREGA E TRAILER
 
@@ -143,13 +149,13 @@ Para cada teste registre: versão, ambiente, o que foi executado, resultado **PA
 - **Este repositório:** método universal, templates, aprendizados gerais comprovados, registro de projetos.
 - **Repositório de cada jogo:** código, assets, GDD, bíblia visual, testes e estado. Não transporte personagens, marcas ou decisões de um jogo para outro. Lição geral só vira regra aqui depois de comprovada.
 
-**Documentos do jogo** (esquema único = `MODELO_PROJETO/`): `AGENTS.md`, `CLAUDE.md`, `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/HANDOFF.md`, `docs/APRENDIZADOS.md`. Crie `GDD.md`, `BIBLIA_VISUAL.md`, `TESTES.md` só se a complexidade pedir, reaproveitando nomes existentes. Em projeto pequeno, o HANDOFF pode ser a seção "Última sessão" do ESTADO_ATUAL.
+**Documentos do jogo** (esquema único = `MODELO_PROJETO/`): `AGENTS.md` (canônico, compartilhado), `CLAUDE.md` (fino: importa o AGENTS.md e traz só o específico do Claude), `docs/ESTADO_ATUAL.md`, `docs/DECISOES.md`, `docs/HANDOFF.md`, `docs/TAREFAS.md`, `docs/APRENDIZADOS.md`. Crie `GDD.md`, `BIBLIA_VISUAL.md`, `TESTES.md` só se a complexidade pedir. Em projeto pequeno, o HANDOFF pode ser a seção "Última sessão" do ESTADO_ATUAL.
 
 **Ao terminar uma sessão:** atualize ESTADO_ATUAL e HANDOFF (concluído / parcial / pendente / não testado, arquivos, evidências, próxima ação exata); registre decisões com data e motivo; commit com mensagem útil; informe branch, commit/PR e se já chegou à branch canônica. Sem acesso: entregue patch/arquivos e declare **NÃO SINCRONIZADO**.
 
-**Trabalho paralelo:** uma branch por tarefa/IA, PR com revisão de conflitos, `main` estável. Nunca sobrescreva trabalho mais novo com snapshot antigo. Sem segredos, credenciais ou material sem direito de redistribuição em repositório público.
+**Trabalho paralelo e comunicação entre IAs:** ordem de serviço, fila de tarefas, branches por IA, PR, integrador: `modulos/COMUNICACAO_CLAUDE_CODEX.md`. Nunca sobrescreva trabalho mais novo com snapshot antigo. Sem segredos, credenciais ou material sem direito de redistribuição em repositório público.
 
-**Entrega:** projeto editável com instruções, assets com inventário e procedência, build jogável quando possível, relatório de testes, docs atualizados. ZIP só se puder ser gerado e verificado.
+**Entrega:** projeto editável com instruções, assets com inventário e proveniência, build jogável quando possível, relatório de testes, docs atualizados. ZIP só se puder ser gerado e verificado.
 
 **Trailer/vídeo** só depois do vertical slice, com captura real: `modulos/VIDEO_TRAILER.md`.
 
