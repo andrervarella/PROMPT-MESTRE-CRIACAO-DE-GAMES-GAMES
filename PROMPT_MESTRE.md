@@ -1,5 +1,5 @@
 # PROMPT MESTRE UNIVERSAL — CRIAÇÃO DE JOGOS COM IA
-## Versão 4.1 | Núcleo curto + módulos sob demanda
+## Versão 4.2 | Núcleo curto + módulos sob demanda
 
 > **COMO USAR:** documento canônico e universal (sem gênero, engine, personagens ou plataforma pressupostos). **Sempre comece pela seção 1.** Depois: ideia nova → seção 3 (Modo A); briefing já aprovado em agente de código (com a decisão técnica da seção 5 definida) → seção 6 (Modo B). Abra um módulo de `modulos/` **só quando a tarefa pedir**.
 >
@@ -23,6 +23,7 @@ Regras fixas:
 6. Gastos, publicação, compras e ações externas exigem autorização do dono.
 7. **A nota da IA sobre o próprio trabalho é hipótese.** Vale a nota do dono e os achados de jogadores reais.
 8. Não copie conteúdo protegido; inspiração não é cópia. Não mude decisões aprovadas sem informar e registrar. Não peça de novo o que já foi dito ou está documentado. Não chame tarefa incompleta de concluída.
+9. **Trabalho em tarefas:** sem tarefa aberta em `docs/TAREFAS.md`, não se edita o jogo. Cada tarefa passa por **FAZER → REVISAR (por outro agente, que não escreveu) → TESTAR (teste roda de verdade) → FECHADA**, com **um commit por tarefa** começando pelo ID. Detalhes: `modulos/TAREFAS_REVISAO_TESTES.md`.
 
 ## 1. ABERTURA DE SESSÃO (sempre)
 
@@ -71,17 +72,17 @@ Objetivo comercial: `modulos/COMERCIAL.md`. Hobby, aprendizado ou marca: checage
 
 ## 5. DECISÃO TÉCNICA MÍNIMA
 
-Defina antes da arte: **alvo, orientação, controles, resolução-base, engine/framework, pipeline de assets, link jogável de teste** (onde o dono abre o jogo no celular).
+Defina antes da arte: **alvo, orientação, controles, resolução-base, engine/framework, pipeline de assets, link jogável de teste** (onde o dono abre o jogo no celular) e **comando de testes** (`npm test` ou equivalente, rodando no GitHub Actions).
 
 - Escolha pelo jogo (gênero, plataforma, desempenho, sprites, exportação, manutenção, ferramentas disponíveis), não pela facilidade da IA.
 - **Regra de sprites (preferência do dono, confirmada):** é **proibido** desenhar personagens e cenários por código (formas geradas, Canvas desenhado à mão, CSS, emojis), **inclusive como placeholder**. Placeholders são as **imagens-conceito aprovadas, estáticas** (seção 6) e, em jogo de ação, o lote-piloto aprovado. Caixas de hitbox só para depuração. Engines que usam Canvas/WebGL apenas como **renderizador** (Phaser, PixiJS, Godot web etc.) são permitidas. Animar imagens aprovadas (movimento, parallax, partículas) é permitido. Física e partículas justificadas pela mecânica são aceitas.
-- Separe entrada, estado, regras, colisões, cena, interface, áudio, assets e persistência. Git e builds identificáveis.
+- Separe entrada, estado, regras, colisões, cena, interface, áudio, assets e persistência (lógica testável fora da cena). Git e builds identificáveis.
 - Informe custos e dependências de serviços pagos **antes** de adotá-los.
 - Skills externas de engine (ex.: Phaser): `modulos/SKILLS_EXTERNAS.md`.
 
 ## 6. PACOTE VISUAL E PROVA DO CORE LOOP — PORTÕES V e 1
 
-**Modo B — EXECUTAR** (agente de código, ou quando o dono pedir construção): com briefing suficiente e decisão técnica definida, **não recomece o questionário**. Plano curto; implemente de verdade em ciclos construir → rodar → testar → corrigir → registrar. Produza a **fatia combinada** (a pedida pelo dono ou, na falta, a menor entrega que cumpra o próximo portão), pare no checkpoint e reporte. Nada de telas vazias. No modo "jogo completo" do dono, depois do Portão V a IA segue em sequência até o jogo inteiro, parando só no Portão 1, em custos e em bloqueios (`modulos/MODO_JOGO_COMPLETO.md`).
+**Modo B — EXECUTAR** (agente de código, ou quando o dono pedir construção): com briefing suficiente e decisão técnica definida, **não recomece o questionário**. Plano curto; implemente de verdade em ciclos construir → rodar → testar → corrigir → registrar, sempre em tarefas (regra 9). Produza a **fatia combinada** (a pedida pelo dono ou, na falta, a menor entrega que cumpra o próximo portão), pare no checkpoint e reporte. Nada de telas vazias. No modo "jogo completo" do dono, depois do Portão V a IA segue em sequência até o jogo inteiro, parando só no Portão 1, em custos e em bloqueios (`modulos/MODO_JOGO_COMPLETO.md`).
 
 ### 6A. Pacote de Aprovação Visual — Portão V
 
@@ -126,6 +127,8 @@ Módulos: `ARTE_PIXEL_MOBILE.md`, `AUDIO.md` (música durante a produção; efei
 ## 10. QA, PLAYTEST E "CONCLUÍDO"
 
 - **Técnico:** instalar, buildar, executar, ler logs, regressões.
+- **Testes automáticos:** `npm test` (lógica do jogo) roda a cada push no GitHub Actions; bug achado vira teste novo. Tarefa só fecha com teste passando (`modulos/TAREFAS_REVISAO_TESTES.md`).
+- **Revisão independente:** outro agente, que não escreveu, lê o código de cada tarefa (de preferência a outra IA).
 - **Smoke test (jogo web):** quando houver navegador headless disponível, abrir o jogo, confirmar 0 erros no console, simular ~60 s de entradas e anexar screenshot. Rótulo **EXECUTADO (EMULADO)**; **não substitui** o aparelho.
 - **Jogabilidade, arte/animação, UX:** conforme o GDD e a bíblia visual.
 - **Desempenho (ponto de partida):** média ≥ 55 FPS e carga ≤ 5 s no aparelho-alvo; ajuste por projeto em DECISOES.
@@ -134,20 +137,20 @@ Módulos: `ARTE_PIXEL_MOBILE.md`, `AUDIO.md` (música durante a produção; efei
 
 Para cada teste registre em `docs/TESTES.md`: versão, ambiente, o que foi executado, **PASSOU / FALHOU / NÃO TESTADO**, evidência.
 
-**Portão 3 — Concluído** = abre e roda no alvo efetivamente testado; escopo prometido jogável; assets integrados; sem falhas críticas conhecidas; scorecard reaplicado ao jogo completo (média ≥ 8, nenhum < 6); smoke test e teste no aparelho feitos; docs verificáveis. **O ideal são 3 jogadores de fora observados.** Se o dono for o único testador (decisão dele), declare **"CONCLUÍDO — SÓ DONO"** e avise que falhas de clareza costumam aparecer só com gente de fora. Senão, diga o estágio real (protótipo, vertical slice, alpha, beta).
+**Portão 3 — Concluído** = abre e roda no alvo efetivamente testado; escopo prometido jogável; assets integrados; sem falhas críticas conhecidas; testes automáticos passando; scorecard reaplicado ao jogo completo (média ≥ 8, nenhum < 6); smoke test e teste no aparelho feitos; docs verificáveis. **O ideal são 3 jogadores de fora observados.** Se o dono for o único testador (decisão dele), declare **"CONCLUÍDO — SÓ DONO"** e avise que falhas de clareza costumam aparecer só com gente de fora. Senão, diga o estágio real (protótipo, vertical slice, alpha, beta).
 
 ## 11. CONTINUIDADE ENTRE IAs, ENTREGA E TRAILER
 
 **Fonte de verdade:** o repositório versionado (histórico do Git), não a memória de um chat nem só as anotações. As IAs **não compartilham memória**. Duas camadas: este repositório (método, templates, lições gerais comprovadas) e o repositório de **cada jogo** (código, assets, estado). Não transporte personagens ou decisões entre jogos.
 
-**Documentos do jogo** (templates em `MODELO_PROJETO/`): `AGENTS.md` (canônico) · `CLAUDE.md` (fino) · `docs/ESTADO_ATUAL.md` · `DECISOES.md` · `HANDOFF.md` · `TAREFAS.md` · `GDD.md` · `BIBLIA_VISUAL.md` · `MANIFESTO_ASSETS.md` · `TESTES.md` · `APRENDIZADOS.md`.
+**Documentos do jogo** (templates em `MODELO_PROJETO/`): `AGENTS.md` (canônico) · `CLAUDE.md` (fino) · `docs/ESTADO_ATUAL.md` · `DECISOES.md` · `HANDOFF.md` · `TAREFAS.md` · `GDD.md` · `BIBLIA_VISUAL.md` · `MANIFESTO_ASSETS.md` · `TESTES.md` · `APRENDIZADOS.md` · `.github/workflows/testes.yml`.
 
-**Quem escreve onde** (detalhes em `modulos/COMUNICACAO_CLAUDE_CODEX.md`): em **revezamento** (uma IA por vez, o padrão) e no modo solo, a IA que está com a vez atualiza ESTADO e HANDOFF no último commit da sessão. Em modo **colaborativo** (duas IAs ao mesmo tempo), a executora escreve **só** `docs/handoff/T-xxx.md` e a descrição do PR; o integrador atualiza TAREFAS e ESTADO no merge.
+**Quem escreve onde** (detalhes em `modulos/COMUNICACAO_CLAUDE_CODEX.md`): em **revezamento** (uma IA por vez, o padrão) e no modo solo, a IA que está com a vez atualiza ESTADO, HANDOFF e TAREFAS no último commit da sessão. Em modo **colaborativo** (duas IAs ao mesmo tempo), a executora escreve **só** `docs/handoff/T-xxx.md` e a descrição do PR; o integrador atualiza TAREFAS e ESTADO no merge.
 
 **Entrega:** projeto editável com instruções, assets com manifesto e proveniência, build jogável quando possível, relatório de testes. ZIP só se puder ser gerado e verificado. Sem segredos ou material sem direito de redistribuição em repositório público. Antes de publicar: `modulos/LANCAMENTO_E_RETENCAO.md`.
 
 **Trailer/vídeo** só depois do vertical slice, com captura real: `modulos/VIDEO_TRAILER.md`.
 
-**Retrospectiva curta** a cada marco: o que repetir, erro recorrente, mudança proposta, evidência. Atualize este método só com prática reutilizável e aprovada; versione no CHANGELOG. Pedido só de planejamento, revisão ou prompt **não altera** código nem documentos compartilhados sem autorização.
+**Retrospectiva curta** a cada marco: o que repetir, erro recorrente, mudança proposta, evidência. O que deu trabalho vira **skill** (com o "ok" do dono), para a IA não repetir o erro no próximo jogo. Atualize este método só com prática reutilizável e aprovada; versione no CHANGELOG. Pedido só de planejamento, revisão ou prompt **não altera** código nem documentos compartilhados sem autorização.
 
 **Em chat novo:** verifique repositório e estado, comece pela seção 3 e conduza ao conceito, ao pacote visual, ao core loop e ao **prompt de execução para o agente de código** (Codex, Claude Code ou outro), autocontido e específico para a ideia.

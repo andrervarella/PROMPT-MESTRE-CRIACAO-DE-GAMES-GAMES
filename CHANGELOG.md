@@ -2,6 +2,20 @@
 
 Registra **mudanças aprovadas e publicadas** na metodologia universal. Não confundir com mudanças em jogos específicos.
 
+## [4.2] — 2026-11-14 (PR #3)
+
+**Motivo:** ideias de um vídeo sobre organização de jogos feitos com IA (quadro de tarefas para agentes, revisão por agente separado, registro de decisões, skills), comparadas com o protocolo e aprovadas pelo dono. Tudo com recursos gratuitos.
+
+- **Regra fixa 9 e módulo `TAREFAS_REVISAO_TESTES`:** sem tarefa aberta em `docs/TAREFAS.md`, não se edita o jogo (pedido do dono vira tarefa na hora).
+- **Etapas por tarefa:** FAZER → REVISAR → TESTAR → FECHADA (ou BLOQUEADA). "Pronto" sem prova não avança; teste falhou, volta para FAZER.
+- **Revisão independente/cruzada:** quem revisa não escreveu (de preferência a outra IA; senão subagente novo; senão "REVISÃO NÃO FEITA"). Checklist inclui relógio dos efeitos (tempo real × tempo de jogo em câmera lenta/hit-stop), estados presos e regras do protocolo. Revisão em lote para economizar crédito.
+- **Testes que rodam de verdade:** `npm test` desde o primeiro código (Vitest para lógica, Playwright para smoke test), modelo de GitHub Actions em `MODELO_PROJETO/.github/workflows/testes.yml`; bug achado vira teste novo.
+- **Um commit por tarefa**, começando pelo ID (`T-012: ...`); decisões citam o ID.
+- **Skills de aprendizado:** o que deu trabalho vira skill (`.claude/skills/` e `.agents/skills/`), com o "ok" do dono.
+- **Templates:** `TAREFAS.md` com revisor, etapa, teste e commit; em revezamento a IA com a vez edita TAREFAS. `MODELO_PROJETO/AGENTS.md` regra 11.
+- **Não adotado:** Obsidian (o GitHub já guarda a memória do projeto) e trava automática (opcional; em repositório privado pode exigir plano pago).
+- **Não comprovado:** nenhum jogo rodou ainda com a V4.x; suporte do Codex à pasta `.agents/skills/` não verificado.
+
 ## [4.1] — 2026-11-13 (PR #2)
 
 **Motivo:** pedido do dono de poder trocar de IA a qualquer momento sem uma sobrescrever a outra; revisão independente do Fable (média 6,6 de 10 na V4.0 com o PR #2 parcial; as 4 lacunas P0 e as P1 foram aplicadas aqui); e o jeito de trabalhar do dono (jogo completo de uma vez, testador único, áudio em duas fases). Nenhuma nota nova foi dada à V4.1.
@@ -19,7 +33,7 @@ Registra **mudanças aprovadas e publicadas** na metodologia universal. Não con
 - **Templates:** novo `BIBLIA_VISUAL.md`; `ESTADO_ATUAL` com **commit-base** (um arquivo não contém o hash do commit que o grava), estágios mapeados aos portões e limite de ~40 linhas; `DECISOES` com DEC-001 (autorização de push na branch de trabalho, proposta); `TESTES` com coluna de notas esclarecida; abertura de sessão mais barata (ESTADO obrigatório, resto sob demanda).
 - **Consistência:** agentes em paralelo padrão 2–3 (a 4.0 dizia 3–4 antes de ajustar aos planos iniciais); clareza "~30 s o objetivo, ~3 min os controles"; `GAME_FEEL` sem conflito com a regra de não desenhar por código; execução no modelo escolhido pelo dono tratada como exceção explícita; `FONTES` com URLs.
 - **Não comprovado:** nenhum jogo rodou ainda com a V4.x. Claims sobre leitura de AGENTS.md pelo Claude Code seguem de fonte secundária. Tetos de orçamento não têm fonte.
-- Commit/PR: PR #2.
+- Commit/PR: PR #2 (commit de merge 4c0fc93).
 
 ## [4.0] — 2026-11-13 (publicada na `main` via PR #1, commit de merge e1c77f7)
 
