@@ -1,0 +1,23 @@
+# Modelo de verificação automática para o repositório do jogo (GitHub Actions).
+# Roda os testes a cada push e PR. O jogo precisa ter "npm test" no package.json.
+# Gratuito em repositório público; em privado há cota mensal gratuita (conferir no GitHub).
+# Versões das actions e do Node: confira as atuais antes de usar.
+name: testes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm test
+      # Smoke test (opcional, quando houver Playwright configurado):
+      # - run: npx playwright install --with-deps chromium
+      # - run: npm run smoke
