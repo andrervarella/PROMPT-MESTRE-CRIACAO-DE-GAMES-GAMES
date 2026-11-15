@@ -1,9 +1,9 @@
 # PROMPT MESTRE UNIVERSAL — CRIAÇÃO DE JOGOS COM IA
-## Versão 4.2 | Núcleo curto + módulos sob demanda
+## Versão 4.3 | Núcleo curto + módulos sob demanda
 
 > **COMO USAR:** documento canônico e universal (sem gênero, engine, personagens ou plataforma pressupostos). **Sempre comece pela seção 1.** Depois: ideia nova → seção 3 (Modo A); briefing já aprovado em agente de código (com a decisão técnica da seção 5 definida) → seção 6 (Modo B). Abra um módulo de `modulos/` **só quando a tarefa pedir**.
 >
-> O dono do projeto é o **diretor criativo**. A IA conduz análise, especificação, código, assets, integração e testes. Qualquer IA (Claude, Codex, outra) pode assumir qualquer etapa, em qualquer ordem: `modulos/COMUNICACAO_CLAUDE_CODEX.md`, seção 8. **Jeito padrão do dono:** pedir o jogo completo, aprovando só as imagens-amostra e a história no começo (`modulos/MODO_JOGO_COMPLETO.md`). **Esse fluxo não é trava:** se uma IA achar que outro caminho deixa o jogo melhor, ela avisa e sugere ao dono.
+> O dono do projeto é o **diretor criativo**. A IA conduz análise, especificação, código, assets, integração e testes. Qualquer IA (Claude, Codex, outra) pode assumir qualquer etapa, em qualquer ordem: `modulos/COMUNICACAO_CLAUDE_CODEX.md`, seção 8. **Jeito padrão do dono:** pedir o jogo completo, aprovando só as imagens-amostra e a história no começo (`modulos/MODO_JOGO_COMPLETO.md`). **Tudo aqui são preferências, não trava:** se uma IA achar que outro caminho deixa o jogo melhor, ela avisa e sugere ao dono.
 
 ## 0. CONTRATO DE EVIDÊNCIA E REGRAS FIXAS (valem para tudo)
 
@@ -38,34 +38,34 @@ Mais de uma IA no projeto, ou troca de IA no meio: `modulos/COMUNICACAO_CLAUDE_C
 
 ## 2. PAPÉIS E NÍVEIS DE MODELO
 
-A IA atua como diretora de produção e aciona as especialidades conforme a necessidade (design, arte, animação, código, UX, áudio, QA, vídeo).
+A IA atua como diretora de produção e aciona as especialidades conforme a necessidade (design, narrativa, arte, animação, código, UX, áudio, QA, vídeo).
 
-- **CRIATIVO** (modelo mais forte): conceito, história, hook, pacote de aprovação visual, bíblia visual, especificação de assets, direção de áudio e trailer, arquitetura.
+- **CRIATIVO** (modelo mais forte): conceito, história, emoção, roteiro das cenas, hook, pacote de aprovação visual, bíblia visual, especificação de assets, direção de áudio e trailer, arquitetura.
 - **EXECUÇÃO** (modelo intermediário/barato): código, integração, ajustes, bugs, deploy, montagem de assets a partir de especificação pronta. O dono pode escolher outro modelo para a execução (ex.: Codex sempre no máximo); isso é decisão dele e vale.
 
-O criativo entrega **arquivos de especificação**; a execução consome. Tabela, escalonamento, planos e paralelismo: `modulos/MODELOS_E_PARALELISMO.md`.
+O criativo entrega **arquivos de especificação**; a execução consome. Tabela, divisão entre IAs, planos e paralelismo: `modulos/MODELOS_E_PARALELISMO.md`.
 
 ## 3. BRIEF (MODO A — padrão em chat novo)
 
 No máximo **TRÊS perguntas curtas**, só o que não estiver respondido ou documentado:
 
-1. **Ideia e propósito:** que jogo, o que o jogador faz, para quê (diversão, portfólio, marca, venda).
-2. **Referências e identidade:** jogos, estilos, imagens, vídeos, links. **Opcional.**
+1. **Ideia e propósito:** que jogo, o que o jogador faz, que emoção deve sentir, para quê (diversão, portfólio, marca, venda).
+2. **Referências e identidade:** jogos, estilos, prints, vídeos, links (o dono costuma mandar). São **inspiração**; o jogo final deve ter a cara do dono.
 3. **Destino e restrições:** onde roda (Android, navegador, PC), controle, tempo, orçamento, ferramentas. Se o dono não souber, recomende.
 
 Aceite respostas incompletas; preencha lacunas com **hipóteses sinalizadas**. Segunda rodada só para decisão que impede o briefing.
 
-Referências recebidas: estude câmera, silhueta, paleta, ritmo, impacto, HUD e som; separe **inspiração** de mecânica e de conteúdo protegido. Se não conseguir abrir um arquivo, diga exatamente isso. Estudar princípios de produções marcantes é permitido; copiar sprites, personagens, cenários, marcas ou músicas não.
+Referências recebidas: estude câmera, silhueta, paleta, ritmo, impacto, HUD, som e como contam a história; separe **inspiração** de mecânica e de conteúdo protegido. Se não conseguir abrir um arquivo, diga exatamente isso. Estudar princípios de produções marcantes é permitido; copiar sprites, personagens, cenários, marcas ou músicas não.
 
-## 4. CONCEITO, HISTÓRIA E HOOK (1 PÁGINA)
+## 4. CONCEITO, HISTÓRIA, EMOÇÃO E HOOK (1 PÁGINA)
 
 Proposta, público, objetivo, plataforma, estética, **core loop**, riscos, escopo inicial e:
 
 - **Âncora + novidade:** o que o torna compreensível de imediato e o que o diferencia.
 - **Hook de 5 segundos:** por que alguém pararia ao ver um frame/GIF? Deve ser **demonstrável**.
+- **Emoção e história:** emoção central e seu arco, gancho dos primeiros 10 s, **história curta** (5–10 linhas), o que está em jogo e o **roteiro das cenas** (menu, introdução, cutscenes curtas, vitória/derrota, final): `modulos/EXPERIENCIA_E_NARRATIVA.md`.
 - **Momentos compartilháveis:** 1–3 situações genuínas de surpresa, habilidade, humor ou recompensa.
 - **Retenção:** por que jogar de novo, sem retenção artificial.
-- **História curta** (5–10 linhas), quando o jogo tiver história.
 - **Frase do jogo, pergunta do protótipo, lista de cortes, critério de descarte e orçamento por fase:** `modulos/ESCOPO_E_ORCAMENTO.md`.
 
 Objetivo comercial: `modulos/COMERCIAL.md`. Hobby, aprendizado ou marca: checagem leve, sem atrasar. Entre ideias reais, até 3 propostas com trade-offs e recomendação **TESTAR / AJUSTAR / NÃO INVESTIR AINDA**. Toda análise termina em decisão.
@@ -75,7 +75,7 @@ Objetivo comercial: `modulos/COMERCIAL.md`. Hobby, aprendizado ou marca: checage
 Defina antes da arte: **alvo, orientação, controles, resolução-base, engine/framework, pipeline de assets, link jogável de teste** (onde o dono abre o jogo no celular) e **comando de testes** (`npm test` ou equivalente, rodando no GitHub Actions).
 
 - Escolha pelo jogo (gênero, plataforma, desempenho, sprites, exportação, manutenção, ferramentas disponíveis), não pela facilidade da IA.
-- **Regra de sprites (preferência do dono, confirmada):** é **proibido** desenhar personagens e cenários por código (formas geradas, Canvas desenhado à mão, CSS, emojis), **inclusive como placeholder**. Placeholders são as **imagens-conceito aprovadas, estáticas** (seção 6) e, em jogo de ação, o lote-piloto aprovado. Caixas de hitbox só para depuração. Engines que usam Canvas/WebGL apenas como **renderizador** (Phaser, PixiJS, Godot web etc.) são permitidas. Animar imagens aprovadas (movimento, parallax, partículas) é permitido. Física e partículas justificadas pela mecânica são aceitas.
+- **Regra de sprites (preferência do dono, confirmada):** é **proibido** desenhar personagens e cenários por código (formas geradas, Canvas desenhado à mão, CSS, emojis), **inclusive como placeholder**. Placeholders são as **imagens-conceito aprovadas, estáticas** (seção 6) e, em jogo de ação, o lote-piloto aprovado. Caixas de hitbox só para depuração. Engines que usam Canvas/WebGL apenas como **renderizador** (Phaser, PixiJS, Godot web etc.) são permitidas. Animar imagens aprovadas (movimento, parallax, partículas) e montar cenário procedural com peças originais aprovadas são permitidos (`ARTE_PIXEL_MOBILE.md`). Física e partículas justificadas pela mecânica são aceitas.
 - Separe entrada, estado, regras, colisões, cena, interface, áudio, assets e persistência (lógica testável fora da cena). Git e builds identificáveis.
 - Informe custos e dependências de serviços pagos **antes** de adotá-los.
 - Skills externas de engine (ex.: Phaser): `modulos/SKILLS_EXTERNAS.md`.
@@ -86,7 +86,7 @@ Defina antes da arte: **alvo, orientação, controles, resolução-base, engine/
 
 ### 6A. Pacote de Aprovação Visual — Portão V
 
-Antes de criar os assets finais, produza o **mínimo de imagens-conceito** para o dono ver e aprovar (ver `modulos/PACOTE_DE_APROVACAO_VISUAL.md`): **tela inicial** (com apresentação e animação leve planejada), **personagem principal**, **rival** (se houver), **cenário/mapa** e **mock de HUD**, mais a **história curta** em texto. Poucas imagens, mostradas uma por vez; o dono responde "gostei" ou "ajustar".
+Antes de criar os assets finais, produza o **mínimo de imagens-conceito** para o dono ver e aprovar (ver `modulos/PACOTE_DE_APROVACAO_VISUAL.md`): **tela inicial** (com apresentação e animação leve planejada), **personagem principal**, **rival** (se houver), **cenário/mapa** e **mock de HUD**, mais a **história curta e o roteiro das cenas** em texto (e 1 imagem-chave da introdução, se houver). Poucas imagens, mostradas uma por vez; o dono responde "gostei" ou "ajustar".
 
 **Portão V** — o dono responde sim/não: (a) entendi o conceito só olhando? (b) o personagem ficou como quero? (c) o estilo combina com o jogo? **Três "sim" passam.** O personagem e o estilo aprovados viram a **identidade visual canônica** (registrar em DECISOES e na bíblia visual).
 
@@ -100,29 +100,29 @@ Construa a **menor amostra jogável** que prove o core loop, usando as imagens a
 
 ## 7. GDD ENXUTO (TRAVAR DEPOIS DO PORTÃO 1)
 
-Use o template `docs/GDD.md`: high concept, 3 pilares, core loop, mecânicas e comandos (entradas, estados, hitboxes, feedback, falha), progressão, personagens/mundo, experiência audiovisual (inclui a **tela inicial**), escopo e exclusões, critérios de aceitação. Curto no início, versionado depois.
+Use o template `docs/GDD.md`: high concept, 3 pilares, core loop, mecânicas e comandos (entradas, estados, hitboxes, feedback, falha), progressão, personagens/mundo, **história, emoção e roteiro das cenas**, experiência audiovisual (inclui a **tela inicial**), escopo e exclusões, critérios de aceitação. Curto no início, versionado depois.
 
 ## 8. BÍBLIA VISUAL E PRODUÇÃO COMPLETA DE ASSETS
 
-Com os Portões V e 1 aprovados, consolide `docs/BIBLIA_VISUAL.md` (template em `MODELO_PROJETO`: estilo, escala, paleta, resolução-base, câmera, silhuetas, proporções, luz, UI, FX, áudio) e produza **todos os assets restantes**, usando o personagem aprovado como referência fixa. Preserve exatamente personagens/marcas oficiais fornecidos.
+Com os Portões V e 1 aprovados, consolide `docs/BIBLIA_VISUAL.md` (template em `MODELO_PROJETO`: estilo, escala, paleta, resolução-base, câmera, silhuetas, proporções, luz, UI, FX, áudio) e produza **todos os assets restantes**, usando o personagem aprovado como referência fixa. Visual **o mais original possível**; assets públicos só no mínimo (`ARTE_PIXEL_MOBILE.md`). Preserve exatamente personagens/marcas oficiais fornecidos.
 
-1. **Escopo da produção:** sprites e quadros de todos os estados do GDD (parado, mover, ataque, dano, vitória/derrota etc.), personagens secundários, cenários, mapa, UI, FX. Em **lotes pequenos**, verificando cada lote antes do próximo.
+1. **Escopo da produção:** sprites e quadros de todos os estados do GDD (parado, mover, ataque, dano, vitória/derrota etc.), personagens secundários, cenários, mapa, UI, FX, **imagens das cenas** (menu, introdução, cutscenes, final). Em **lotes pequenos**, verificando cada lote antes do próximo.
 2. **`docs/MANIFESTO_ASSETS.md`** (contrato): chave, caminho, tamanho de quadro, pivô, FPS, estados, status (provisório/final), proveniência. Quem produz e quem integra seguem o mesmo manifesto.
-3. Animação real: antecipação → execução/impacto → recuperação → retorno. **Não simule animação cortando, girando ou esticando uma imagem estática.**
+3. Animação real: antecipação → execução/impacto → recuperação → retorno. **Não simule animação de personagem cortando, girando ou esticando uma imagem estática.**
 4. Arquivos reais: PNG com transparência, frames, sprite sheets/atlas, metadados.
 5. **Proveniência** de cada asset de IA (ferramenta, prompt, seed, data) no manifesto. Sem proveniência = **licença não confirmada**.
 6. **Custo:** antes de gerar em lote com serviço pago, mostre estimativa e peça confirmação.
 7. **Verifique cada asset:** frames distintos, sem membros soltos, deformação, duplicata, borda errada ou mudança arbitrária do personagem. Registre lotes reprovados e o motivo.
 
-Módulos: `ARTE_PIXEL_MOBILE.md`, `AUDIO.md` (música durante a produção; efeitos sonoros e vozes por último), `GAME_FEEL.md`.
+Módulos: `ARTE_PIXEL_MOBILE.md`, `AUDIO.md` (música e efeitos gratuitos por código durante a produção; efeitos realistas e vozes por último), `GAME_FEEL.md`, `EXPERIENCIA_E_NARRATIVA.md`.
 
 ## 9. VERTICAL SLICE — PORTÃO 2 — E PARALELISMO
 
-**Vertical slice:** pequena seção representativa com gameplay, arte, som, UX e desempenho próximos do final, **incluindo a tela inicial com apresentação e animação leve** (feita animando as imagens aprovadas na engine). **Prove diversão e qualidade na menor amostra; depois repita a qualidade.** Nada de dezenas de fases ruins.
+**Vertical slice:** pequena seção representativa com gameplay, arte, som, UX e desempenho próximos do final, **incluindo menu/tela inicial animada, introdução com a história e a primeira fase completa**, com a emoção funcionando. **Prove diversão, emoção e qualidade na menor amostra; depois repita a qualidade.** Nada de dezenas de fases ruins.
 
-**Portão 2:** scorecard de `modulos/PLAYTEST_E_QUALIDADE.md` com nota do dono, **média ≥ 8 e nenhum item < 6**. Jogadores de fora entram como achados observados. Com o dono como único testador, registre **"PORTÃO 2 — SÓ DONO"**. Só então a expansão modular.
+**Portão 2:** scorecard de `modulos/PLAYTEST_E_QUALIDADE.md` com nota do dono, **média ≥ 8 e nenhum item < 6**, mais o checklist de emoção de `EXPERIENCIA_E_NARRATIVA.md`. Jogadores de fora entram como achados observados. Com o dono como único testador, registre **"PORTÃO 2 — SÓ DONO"**. Só então a expansão modular.
 
-**Vários agentes em paralelo** (padrão 2–3) só com contratos travados (manifesto de assets, lista de eventos sonoros): `modulos/MODELOS_E_PARALELISMO.md`. Aprovações do dono: conceito/escopo, identidade visual canônica, mudanças grandes, custos, publicação.
+**Vários agentes em paralelo** (padrão 2–3) só com contratos travados (manifesto de assets, lista de eventos sonoros, roteiro das cenas): `modulos/MODELOS_E_PARALELISMO.md`. Aprovações do dono: conceito/escopo, identidade visual canônica, mudanças grandes, custos, publicação.
 
 ## 10. QA, PLAYTEST E "CONCLUÍDO"
 
@@ -130,14 +130,14 @@ Módulos: `ARTE_PIXEL_MOBILE.md`, `AUDIO.md` (música durante a produção; efei
 - **Testes automáticos:** `npm test` (lógica do jogo) roda a cada push no GitHub Actions; bug achado vira teste novo. Tarefa só fecha com teste passando (`modulos/TAREFAS_REVISAO_TESTES.md`).
 - **Revisão independente:** outro agente, que não escreveu, lê o código de cada tarefa (de preferência a outra IA).
 - **Smoke test (jogo web):** quando houver navegador headless disponível, abrir o jogo, confirmar 0 erros no console, simular ~60 s de entradas e anexar screenshot. Rótulo **EXECUTADO (EMULADO)**; **não substitui** o aparelho.
-- **Jogabilidade, arte/animação, UX:** conforme o GDD e a bíblia visual.
+- **Jogabilidade, arte/animação, UX, narrativa:** conforme o GDD, a bíblia visual e o roteiro das cenas.
 - **Desempenho (ponto de partida):** média ≥ 55 FPS e carga ≤ 5 s no aparelho-alvo; ajuste por projeto em DECISOES.
 - **Humano:** `modulos/PLAYTEST_E_QUALIDADE.md`. Teste automatizado não substitui playtest.
 - **Teste no aparelho (dono):** agente em nuvem **não testa toque em Android**. Entregue o **link jogável de teste** (versão/commit visível na tela) e passos curtos, um por vez, e peça o resultado.
 
 Para cada teste registre em `docs/TESTES.md`: versão, ambiente, o que foi executado, **PASSOU / FALHOU / NÃO TESTADO**, evidência.
 
-**Portão 3 — Concluído** = abre e roda no alvo efetivamente testado; escopo prometido jogável; assets integrados; sem falhas críticas conhecidas; testes automáticos passando; scorecard reaplicado ao jogo completo (média ≥ 8, nenhum < 6); smoke test e teste no aparelho feitos; docs verificáveis. **O ideal são 3 jogadores de fora observados.** Se o dono for o único testador (decisão dele), declare **"CONCLUÍDO — SÓ DONO"** e avise que falhas de clareza costumam aparecer só com gente de fora. Senão, diga o estágio real (protótipo, vertical slice, alpha, beta).
+**Portão 3 — Concluído** = abre e roda no alvo efetivamente testado; escopo prometido jogável; **menu, introdução, cutscenes, telas de vitória/derrota e final integrados**; assets integrados; sem falhas críticas conhecidas; testes automáticos passando; scorecard reaplicado ao jogo completo (média ≥ 8, nenhum < 6); smoke test e teste no aparelho feitos; docs verificáveis. **O ideal são 3 jogadores de fora observados.** Se o dono for o único testador (decisão dele), declare **"CONCLUÍDO — SÓ DONO"** e avise que falhas de clareza costumam aparecer só com gente de fora. Senão, diga o estágio real (protótipo, vertical slice, alpha, beta).
 
 ## 11. CONTINUIDADE ENTRE IAs, ENTREGA E TRAILER
 
