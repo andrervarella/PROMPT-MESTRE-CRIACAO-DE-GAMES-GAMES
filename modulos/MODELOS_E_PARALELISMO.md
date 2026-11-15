@@ -2,6 +2,23 @@
 
 Leia quando for distribuir trabalho entre modelos ou agentes. Referência: seções 2 e 9 do `PROMPT_MESTRE.md`. Ordem de serviço e branches: `COMUNICACAO_CLAUDE_CODEX.md`.
 
+## Divisão padrão de trabalho (definida pelo dono em 2026-11-14)
+
+Ponto de partida, não trava: qualquer IA pode sugerir outra divisão (motivo, 2 opções, recomendação).
+
+| Etapa | Quem |
+|---|---|
+| Conceito, história, emoção do jogo, lista do jogo completo (discutidos com o dono) | **Claude** (nível CRIATIVO). Segunda opinião do ChatGPT é opcional. |
+| Especificação de cada imagem (o que gerar, tamanho, poses, estados, paleta, referência fixa) | **Claude**, no `docs/MANIFESTO_ASSETS.md` e na bíblia visual |
+| Imagens de amostra (Portão V), lote-piloto, sprites, cenários, mapa, tela inicial, UI | **ChatGPT / Codex** (gerador de imagens da OpenAI, PixelLab) |
+| Aprovação das imagens | **Dono** |
+| Código do jogo, integração, música, testes, link jogável | **Claude** |
+| Revisão do código | **Codex** (quem não escreveu revisa) |
+| Revisão dos sprites (personagem mudou entre quadros? segue o manifesto?) | **Claude** |
+| Efeitos sonoros e vozes no final (ElevenLabs) | Quem tiver o acesso |
+
+**Tudo passa pelo Git.** Imagem que ficar só num chat não existe para a outra IA. As imagens são salvas no repositório do jogo pelo Codex (que faz commit e push), com nome e caminho do manifesto e a proveniência (ferramenta, prompt, data). Imagem gerada no ChatGPT comum é subida pelo Codex ou pelo dono antes de a próxima etapa começar.
+
 ## Níveis (por função, não por nome — nomes mudam)
 
 | Nível | Para quê | Quando |
