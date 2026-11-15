@@ -9,15 +9,24 @@ Ponto de partida, não trava: qualquer IA pode sugerir outra divisão (motivo, 2
 | Etapa | Quem |
 |---|---|
 | Conceito, história, emoção do jogo, lista do jogo completo (discutidos com o dono) | **Claude** (nível CRIATIVO). Segunda opinião do ChatGPT é opcional. |
-| Especificação de cada imagem (o que gerar, tamanho, poses, estados, paleta, referência fixa) | **Claude**, no `docs/MANIFESTO_ASSETS.md` e na bíblia visual |
-| Imagens de amostra (Portão V), lote-piloto, sprites, cenários, mapa, tela inicial, UI | **ChatGPT / Codex** (gerador de imagens da OpenAI, PixelLab) |
-| Aprovação das imagens | **Dono** |
-| Código do jogo, integração, música, testes, link jogável | **Claude** |
+| Especificação de cada imagem, cutscene e vídeo (o que gerar, tamanho, poses, estados, paleta, referência fixa, roteiro) | **Claude**, no `docs/MANIFESTO_ASSETS.md` e na bíblia visual |
+| Imagens de amostra (Portão V), lote-piloto, sprites, cenários, mapa, tela inicial, UI | **ChatGPT / Codex** (gerador de imagens da OpenAI, PixelLab). Alternativa: **Fenaky** (imagens e pixel art) |
+| Cutscenes entre fases (CGs) e vídeos promocionais/trailer | **Fenaky** (vídeo), a partir do roteiro do Claude e das imagens aprovadas como referência |
+| Música | **Fenaky** (Fenaky Music) ou outra ferramenta disponível |
+| Aprovação das imagens, cutscenes e músicas | **Dono** |
+| Código do jogo, integração (inclui tocar as cutscenes), testes, link jogável | **Claude** |
 | Revisão do código | **Codex** (quem não escreveu revisa) |
-| Revisão dos sprites (personagem mudou entre quadros? segue o manifesto?) | **Claude** |
+| Revisão dos sprites e cutscenes (personagem mudou? segue o manifesto?) | **Claude** |
 | Efeitos sonoros e vozes no final (ElevenLabs) | Quem tiver o acesso |
 
-**Tudo passa pelo Git.** Imagem que ficar só num chat não existe para a outra IA. As imagens são salvas no repositório do jogo pelo Codex (que faz commit e push), com nome e caminho do manifesto e a proveniência (ferramenta, prompt, data). Imagem gerada no ChatGPT comum é subida pelo Codex ou pelo dono antes de a próxima etapa começar.
+**Tudo passa pelo Git.** Imagem, vídeo ou música que ficar só num chat ou num link não existe para a outra IA. Os arquivos são salvos no repositório do jogo (pelo Codex, por quem gerou ou pelo dono), com nome e caminho do manifesto e a proveniência (ferramenta, prompt, data).
+
+### Fenaky (conectado ao Claude e ao Codex; plano pago do dono)
+- Usar para: **cutscenes entre fases**, **vídeos promocionais/trailer**, **música**, e imagens/pixel art quando fizer sentido.
+- **Antes de gerar, mostrar o custo** (cotação da própria ferramenta) e pedir o "ok" do dono.
+- **Links de resultado expiram** (o Fenaky informa validade de 24 h): baixar e salvar no repositório logo depois de gerar.
+- Cutscenes usam o **personagem aprovado como referência** de imagem, para manter a identidade; seguem o mesmo ciclo de aprovação (uma por vez, "gostei"/"ajustar").
+- Cutscene é curta e pulável; o jogo não pode depender dela para funcionar.
 
 ## Níveis (por função, não por nome — nomes mudam)
 
@@ -46,11 +55,11 @@ Observação de custo: o modelo máximo no Codex consome o plano mais rápido. S
 
 ## Planos do dono (contexto de custo)
 
-O dono usa planos **iniciais/baratos**: Claude (~R$100/mês) e Codex (~R$100/mês). Créditos e limites de uso são finitos. Consequências:
+O dono usa planos **iniciais/baratos**: Claude (~R$100/mês) e Codex (~R$100/mês), e pretende pagar o Fenaky. Créditos e limites de uso são finitos. Consequências:
 
 1. **Gaste o forte só onde rende:** conceito, pacote visual e bíblia visual. No Claude, todo o resto no modelo de execução.
-2. **Aprovar antes de produzir** (Pacote de Aprovação Visual) é também economia: evita refazer lotes inteiros de sprites.
-3. **Reparta o trabalho entre os dois planos:** se um chegar perto do limite, a tarefa passa para a outra IA via ordem de serviço, sem esperar.
+2. **Aprovar antes de produzir** (Pacote de Aprovação Visual) é também economia: evita refazer lotes inteiros de sprites e vídeos.
+3. **Reparta o trabalho entre os planos:** se um chegar perto do limite, a tarefa passa para a outra IA via ordem de serviço, sem esperar.
 4. Antes de gerar em lote (imagens, áudio, vídeo), mostre a **estimativa de custo/uso** e peça confirmação.
 5. Os limites dos planos mudam; confira no próprio serviço, não neste documento.
 
