@@ -2,6 +2,19 @@
 
 Registra **mudanças aprovadas e publicadas** na metodologia universal. Não confundir com mudanças em jogos específicos.
 
+## [4.5] — 2026-11-15 (DEC-015, proposta por PR; pendente de merge na main)
+
+**Motivo:** tornar a separação Drive × GitHub inequívoca para todos os jogos, a partir da DEC-015 aprovada no ARASHI VANGUARD (`dev`, `docs/DECISOES.md` e `docs/ACERVO_DRIVE.md`).
+
+- **GitHub:** código, engine, documentação, decisões, tarefas, manifestos e **somente assets finais otimizados usados pelo jogo em runtime**. O build deve funcionar sem Drive.
+- **Drive:** `GAMES_IA/NOME DO JOGO/` (00–05), com originais aprovados, rascunhos, descartes, sprites em produção, cenários em alta resolução, vídeos, fontes de áudio e ZIPs. Não duplicar tudo.
+- **Manifesto:** ID, versão, status, caminho lógico no Drive, caminho no GitHub e SHA-256 de cada representação presente.
+- **Upload grande:** o conector do Claude no caso ARASHI teve teto observado de ~3,1 MB por arquivo (não é teto universal do Drive). Em vez de partes soltas, usar PNG recomprimido ou WebP lossless; comparar pixels RGBA e dimensões **exatamente por script**, registrar hash original e da cópia. ZIP redundante não precisa ser reenviado.
+- **Privacidade:** avisar que GitHub público mostra arte não lançada. Só o dono decide privatizar. Não apagar assets existentes sem autorização. **Nunca publicar links do Drive**, URLs assinadas ou credenciais no GitHub.
+- **Três estados:** salvo no Drive / presente no GitHub / acesso do outro agente verificado. Só afirmar sincronização após verificar.
+- **Arquivos atualizados neste PR:** `modulos/ACERVO_DRIVE_GITHUB.md`, `AGENTS.md`, `PROMPT_MESTRE.md`, `README.md`, `CHANGELOG.md`, `modulos/COMUNICACAO_CLAUDE_CODEX.md` e templates em `MODELO_PROJETO/`.
+- Compatibilidade: Portões V/1/2/3, revisão de tarefas, branches e regras de aprovação permanecem inalterados. **Nenhuma migração ou remoção automática** de assets de jogos.
+
 ## [4.4] — 2026-11-15 (padronização Drive/GitHub; PR desta alteração)
 
 **Decisão do proprietário:** usar Google Drive como acervo mestre de assets de todos os jogos, criando uma pasta por jogo, e o GitHub como fonte de código, documentação, manifestos e assets finais de runtime.

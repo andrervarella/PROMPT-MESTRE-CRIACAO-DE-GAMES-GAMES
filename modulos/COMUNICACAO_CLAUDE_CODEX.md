@@ -100,13 +100,16 @@ O risco: a IA que chega trabalha sobre uma versão antiga e apaga ou contradiz o
 
 - **Código e estado do jogo só contam como sincronizados quando há commit/push no Git.** Para referências e matrizes visuais, o **Drive do jogo é o acervo mestre**; o manifesto com localização, versão e aprovação deve estar no Git. Uma IA não enxerga a pasta local da outra; salvar apenas localmente significa **NÃO SINCRONIZADO**. Uma imagem apenas no Drive também não está disponível para a outra IA até que acesso e upload sejam verificados. Os sprites finais necessários à execução devem acompanhar o projeto do jogo.
 - **Ferramentas diferem por IA** (um conector pode existir só em uma). Cada IA declara as ferramentas que realmente tem. Se a tarefa precisa de uma que só a outra tem, avisa o dono e sugere passar a tarefa, registrando no handoff.
-- **Assets de qualquer IA** entram em `docs/MANIFESTO_ASSETS.md` com procedência, versão, caminho no Drive e status. Originais aprovados de alta resolução ficam no acervo mestre do **Drive do jogo**; uma prévia otimizada no GitHub (`concept/`) é recomendada quando permitida. Se não houver prévia pública, guardar somente identificador/manifesto e verificar acesso ao Drive. A outra IA precisa ter acesso real à referência aprovada antes de gerar variações; não basta um caminho textual. Ver `modulos/ACERVO_DRIVE_GITHUB.md`.
+- **Assets de qualquer IA** entram em `docs/MANIFESTO_ASSETS.md` com ID, procedência, versão, status, caminhos lógicos Drive/GitHub e SHA-256. O **Drive do jogo** guarda todas as referências/originais e trabalho; **novas artes que não sejam runtime final não vão para o GitHub público por padrão**. A outra IA precisa ter acesso real ao original aprovado no Drive antes de gerar variações. Não apagar imagens já publicadas sem aprovação. Ver `modulos/ACERVO_DRIVE_GITHUB.md`.
 - Duas IAs **não** trabalham ao mesmo tempo nos mesmos arquivos (seção 3). Em dia de troca, o dono avisa quem está com a vez.
 
 
-## 9. Ponte Drive ↔ GitHub — padrão para todos os jogos
+## 9. Ponte Drive ↔ GitHub — padrão V4.5 (DEC-015)
 
-- Cada jogo possui sua pasta no Google Drive em `GAMES_IA/NOME DO JOGO/`, com referências aprovadas, assets em andamento, sprites/animações, cenários/UI, áudio/vídeo e exportações, conforme `modulos/ACERVO_DRIVE_GITHUB.md`.
-- O repositório do jogo contém código, projeto Godot/engine, documentação, `docs/ACERVO_DRIVE.md`, `docs/MANIFESTO_ASSETS.md`, e os arquivos finais necessários ao build. Nunca depender de um ZIP privado do Drive para execução sem procedimento autorizado e reproduzível.
-- Em cada handoff, informar quais arquivos foram efetivamente colocados no Drive e no GitHub, o caminho/versão/hash quando disponível, e se Claude/Codex realmente conseguem acessá-los. Nenhuma ferramenta herda automaticamente a conexão de outra.
-- Não compartilhar pastas publicamente sem autorização e não inserir no repositório público links temporários, fotos privadas, credenciais ou materiais sensíveis.
+- **Drive:** cada jogo tem `GAMES_IA/NOME DO JOGO/` com as pastas 00–05 para originais aprovados, rascunhos, descartes, sprites em produção, cenários em alta resolução, áudio/vídeo-fonte e ZIPs.
+- **GitHub do jogo:** apenas assets finais otimizados de runtime, código, projeto da engine, decisões, tarefas, documentação, `docs/ACERVO_DRIVE.md` e `docs/MANIFESTO_ASSETS.md`. O jogo **não deve depender do Drive** para executar.
+- Não duplicar tudo. O final de runtime vai no GitHub; a fonte/original fica no Drive. No manifesto, registrar ID, versão, status, caminhos **lógicos**, SHA-256 das representações existentes e evidência de conferência de pixels quando houver cópia sem perda.
+- Falhou upload devido a tamanho? Nunca enviar imagem dividida em partes soltas. Usar PNG recomprimido ou WebP **lossless**, validar por script RGBA/dimensões idênticos e guardar **hash do original e da cópia**. ZIP redundante já coberto no acervo não precisa de upload.
+- **Três estados independentes:** `SALVO NO DRIVE`, `NO GITHUB`, `OUTRO AGENTE CONSEGUIU ACESSAR`. Só chamar `SINCRONIZADO` após verificação dos estados necessários. Um agente não herda acesso do outro.
+- **Nunca publicar link do Drive**, URL assinada, token ou credencial no GitHub. Alertar o dono que repositório público expõe arte inédita; decidir privatização cabe ao dono. Não excluir assets GitHub existentes sem autorização.
+- Detalhes e checklists: `modulos/ACERVO_DRIVE_GITHUB.md`.

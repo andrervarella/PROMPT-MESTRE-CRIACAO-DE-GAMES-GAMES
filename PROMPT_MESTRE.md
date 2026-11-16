@@ -1,5 +1,5 @@
 # PROMPT MESTRE UNIVERSAL — CRIAÇÃO DE JOGOS COM IA
-## Versão 4.4 | Núcleo curto + módulos sob demanda
+## Versão 4.5 | Núcleo curto + módulos sob demanda
 
 > **COMO USAR:** documento canônico e universal (sem gênero, engine, personagens ou plataforma pressupostos). **Sempre comece pela seção 1.** Depois: ideia nova → seção 3 (Modo A); briefing já aprovado em agente de código (com a decisão técnica da seção 5 definida) → seção 6 (Modo B). Abra um módulo de `modulos/` **só quando a tarefa pedir**.
 >
@@ -25,7 +25,7 @@ Regras fixas:
 8. Não copie conteúdo protegido; inspiração não é cópia. Não mude decisões aprovadas sem informar e registrar. Não peça de novo o que já foi dito ou está documentado. Não chame tarefa incompleta de concluída.
 9. **Trabalho em tarefas:** sem tarefa aberta em `docs/TAREFAS.md`, não se edita o jogo. Cada tarefa passa por **FAZER → REVISAR (por outro agente, que não escreveu) → TESTAR (teste roda de verdade) → FECHADA**, com **um commit por tarefa** começando pelo ID. Detalhes: `modulos/TAREFAS_REVISAO_TESTES.md`.
 
-**10. Arquivos e acervo universal:** Google Drive guarda matrizes visuais, produção intermediária e arquivos grandes separados por jogo; GitHub guarda código, builds reproduzíveis, documentação, manifestos e assets finais necessários ao jogo. Cada projeto usa `GAMES_IA/NOME DO JOGO/`. Ver `modulos/ACERVO_DRIVE_GITHUB.md`. Só declarar sincronização após verificar as duas pontas; não presumir conexão do Claude/Codex ao Drive nem compartilhar pastas sem autorização.
+**10. Acervo universal V4.5 (DEC-015):** Drive `GAMES_IA/NOME DO JOGO/` (pastas 00–05) contém originais aprovados, rascunhos, descartes, trabalho em alta resolução, vídeos/músicas-fonte e ZIPs. GitHub contém código/engine/docs/manifestos e **apenas assets finais otimizados utilizados em runtime**; jogo independe do Drive. Não duplicar tudo. `MANIFESTO_ASSETS.md` registra ID, versão, status, caminhos lógicos e SHA-256 (original, cópia sem perda e runtime quando aplicável). Limite de conector: usar PNG recomprimido/WebP lossless, verificar pixels por script e ambos os hashes; nunca arquivos em partes soltas. Nunca publicar links de Drive, URLs assinadas ou credenciais no GitHub; alertar sobre arte inédita em repo público, privacidade e remoção são decisões do dono. São distintos: `salvo no Drive` / `no GitHub` / `outro agente conseguiu acessar`. Ver `modulos/ACERVO_DRIVE_GITHUB.md`.
 
 ## 1. ABERTURA DE SESSÃO (sempre)
 
