@@ -1,6 +1,6 @@
 # AGENTS.md — Modelo para repositório de jogo (canônico, autossuficiente)
 
-Projeto: **[NOME]** · Método: Prompt Mestre Universal **V4.3** — [URL DO REPOSITÓRIO CENTRAL, de preferência fixada em tag/commit]/PROMPT_MESTRE.md
+Projeto: **[NOME]** · Método: Prompt Mestre Universal **V4.4** — [URL DO REPOSITÓRIO CENTRAL, de preferência fixada em tag/commit]/PROMPT_MESTRE.md
 
 ## Regras essenciais (resumo; valem mesmo sem acesso ao repositório central)
 1. **Antes de agir (vale ao assumir um jogo que outra IA mexeu):** liste branches e PRs abertos; se a outra IA deixou PR aberto ou usa a branch `dev`, o estado mais recente é o dela, não a `main`. Compare o último commit com o **commit-base** de `docs/ESTADO_ATUAL.md` (leitura obrigatória, curta). Se houver commits depois, leia o que mudaram **antes** de editar. Crie sua branch a partir do último commit e edite sempre sobre a versão recém-lida dos arquivos; nunca reescreva arquivo inteiro de uma cópia antiga. Antes de enviar, confira de novo se a branch não andou. Em dúvida ou contradição: pare e pergunte ao dono. `DECISOES.md`, `TAREFAS.md` e o handoff só se a tarefa tocar neles. Vale o Git, não as anotações.
@@ -15,6 +15,8 @@ Projeto: **[NOME]** · Método: Prompt Mestre Universal **V4.3** — [URL DO REP
 10. Não mude decisões aprovadas sem informar e registrar. Gastos, publicação e ações externas exigem autorização do dono. Preserve código e assets aprovados; não recomece do zero nem troque engine sem justificar e aprovar. **Tudo são preferências do dono:** se achar que outro caminho deixa o jogo melhor, avise e sugira (motivo, 2 opções, recomendação).
 11. **Ao parar de trabalhar:** faça commit e push na branch de trabalho (autorização em `DECISOES.md`, DEC-001) e deixe no handoff o **commit-base** (o último commit antes desta atualização), os arquivos alterados, o que ficou pela metade e o próximo passo. Sem commit/push publicado, declare NÃO SINCRONIZADO.
 12. **Tarefas, revisão e testes:** sem tarefa aberta em `docs/TAREFAS.md`, não edite arquivo do jogo (pedido do dono vira tarefa na hora). Cada tarefa passa por **FAZER → REVISAR → TESTAR → FECHADA**. A revisão é feita por **outro agente que não escreveu** (de preferência a outra IA), lendo o código, com atenção a relógio/tempo de efeitos, estados presos e regras do protocolo. Para sair de TESTAR, `npm test` (e o smoke test, se houver) **roda de verdade e passa**; se falhar, volta para FAZER. Bug achado vira teste novo. **Um commit por tarefa**, começando pelo ID (`T-012: ...`). Ao fim de algo que deu trabalho, proponha ao dono registrar o jeito certo numa **skill** (`.claude/skills/` e `.agents/skills/`).
+
+13. **Drive ↔ GitHub (todos os jogos):** criar `GAMES_IA/[NOME DO JOGO]/` com as pastas `00_REFERENCIAS_APROVADAS` a `05_EXPORTACOES_PACOTES`; guardar originais e grandes arquivos no Drive; manter código, projeto executável, `docs/ACERVO_DRIVE.md`, manifesto e assets finais de runtime no GitHub. Conferir acesso real de cada agente, não compartilhar pastas sem autorização e registrar verificações no handoff. Ver `modulos/ACERVO_DRIVE_GITHUB.md` no repositório de metodologia.
 
 ## Projeto
 - Build: [COMANDO BUILD] · Testes: `npm test` [ajustar] · Smoke: [COMANDO]
