@@ -1,5 +1,5 @@
 # PROMPT MESTRE UNIVERSAL — CRIAÇÃO DE JOGOS COM IA
-## Versão 4.3 | Núcleo curto + módulos sob demanda
+## Versão 4.4 | Núcleo curto + módulos sob demanda
 
 > **COMO USAR:** documento canônico e universal (sem gênero, engine, personagens ou plataforma pressupostos). **Sempre comece pela seção 1.** Depois: ideia nova → seção 3 (Modo A); briefing já aprovado em agente de código (com a decisão técnica da seção 5 definida) → seção 6 (Modo B). Abra um módulo de `modulos/` **só quando a tarefa pedir**.
 >
@@ -24,6 +24,8 @@ Regras fixas:
 7. **A nota da IA sobre o próprio trabalho é hipótese.** Vale a nota do dono e os achados de jogadores reais.
 8. Não copie conteúdo protegido; inspiração não é cópia. Não mude decisões aprovadas sem informar e registrar. Não peça de novo o que já foi dito ou está documentado. Não chame tarefa incompleta de concluída.
 9. **Trabalho em tarefas:** sem tarefa aberta em `docs/TAREFAS.md`, não se edita o jogo. Cada tarefa passa por **FAZER → REVISAR (por outro agente, que não escreveu) → TESTAR (teste roda de verdade) → FECHADA**, com **um commit por tarefa** começando pelo ID. Detalhes: `modulos/TAREFAS_REVISAO_TESTES.md`.
+
+**10. Arquivos e acervo universal:** Google Drive guarda matrizes visuais, produção intermediária e arquivos grandes separados por jogo; GitHub guarda código, builds reproduzíveis, documentação, manifestos e assets finais necessários ao jogo. Cada projeto usa `GAMES_IA/NOME DO JOGO/`. Ver `modulos/ACERVO_DRIVE_GITHUB.md`. Só declarar sincronização após verificar as duas pontas; não presumir conexão do Claude/Codex ao Drive nem compartilhar pastas sem autorização.
 
 ## 1. ABERTURA DE SESSÃO (sempre)
 
@@ -107,7 +109,7 @@ Use o template `docs/GDD.md`: high concept, 3 pilares, core loop, mecânicas e c
 Com os Portões V e 1 aprovados, consolide `docs/BIBLIA_VISUAL.md` (template em `MODELO_PROJETO`: estilo, escala, paleta, resolução-base, câmera, silhuetas, proporções, luz, UI, FX, áudio) e produza **todos os assets restantes**, usando o personagem aprovado como referência fixa. Visual **o mais original possível**; assets públicos só no mínimo (`ARTE_PIXEL_MOBILE.md`). Preserve exatamente personagens/marcas oficiais fornecidos.
 
 1. **Escopo da produção:** sprites e quadros de todos os estados do GDD (parado, mover, ataque, dano, vitória/derrota etc.), personagens secundários, cenários, mapa, UI, FX, **imagens das cenas** (menu, introdução, cutscenes, final). Em **lotes pequenos**, verificando cada lote antes do próximo.
-2. **`docs/MANIFESTO_ASSETS.md`** (contrato): chave, caminho, tamanho de quadro, pivô, FPS, estados, status (provisório/final), proveniência. Quem produz e quem integra seguem o mesmo manifesto.
+2. **`docs/MANIFESTO_ASSETS.md`** (contrato): chave, caminho, tamanho de quadro, pivô, FPS, estados, status (provisório/final), proveniência. **Incluir vínculo e versão com acervo mestre do Google Drive, além do caminho do asset final no GitHub**, conforme `modulos/ACERVO_DRIVE_GITHUB.md`. Quem produz e quem integra seguem o mesmo manifesto.
 3. Animação real: antecipação → execução/impacto → recuperação → retorno. **Não simule animação de personagem cortando, girando ou esticando uma imagem estática.**
 4. Arquivos reais: PNG com transparência, frames, sprite sheets/atlas, metadados.
 5. **Proveniência** de cada asset de IA (ferramenta, prompt, seed, data) no manifesto. Sem proveniência = **licença não confirmada**.
