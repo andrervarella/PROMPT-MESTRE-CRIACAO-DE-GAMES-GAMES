@@ -1,21 +1,24 @@
-# MÓDULO — Acervo de assets no Google Drive e código no GitHub
+# MÓDULO — Acervo Google Drive × GitHub (V4.5)
 
-**Aplica-se a TODOS os jogos criados com esta metodologia**, independentemente de engine, IA ou plataforma. Decisão do proprietário em 15/11/2026. Ver também \`modulos/COMUNICACAO_CLAUDE_CODEX.md\` e \`modulos/ARTE_PIXEL_MOBILE.md\`.
+**Regra universal para TODOS os jogos.** Aprovada pelo proprietário em 15/11/2026; refinamento baseado na DEC-015 de `andrervarella/ARASHI-VANGUARD-GAME` (`dev`, `docs/DECISOES.md` e `docs/ACERVO_DRIVE.md`). Complementa `modulos/COMUNICACAO_CLAUDE_CODEX.md`.
 
-## 1. Arquitetura padrão
+## 1. Divisão obrigatória, sem duplicação integral
 
-**Google Drive = acervo mestre de arte e arquivos grandes**, segregado por jogo. **GitHub = fonte de verdade para código, projeto executável, documentação, decisões, tarefas, histórico e manifestos**.
+**GitHub — apenas assets finais de runtime e arquivos de desenvolvimento necessários:**
+- Código, projeto da engine (Godot/Phaser/Unity etc.), cenas, dependências, configuração, documentação, decisões, tarefas, manifestos e testes.
+- Sprites, cenários, UI, efeitos sonoros e músicas **finais e otimizados**, realmente utilizados pelo jogo.
+- O clone/build do projeto deve funcionar sem buscar manualmente arquivos no Drive. O Drive não pode ser dependência de runtime nem substituto para arquivos obrigatórios do jogo.
+- **Não usar GitHub como biblioteca de originais e rascunhos.** Não inserir novas artes de conceito não lançadas no repositório público só para compartilhar entre agentes. Os arquivos de referência já publicados permanecem até decisão expressa do dono; **nunca apagá-los automaticamente**.
 
-- Drive: referências aprovadas em resolução original, concept sheets, personagens, assets intermediários, originais editáveis, vídeos, áudios, spritesheets de trabalho, ZIPs grandes e entregas.
-- GitHub: projeto Godot/Phaser/Unity e código-fonte, cenas e dependências, arquivos de configuração, documentação, tarefas, manifestos, scripts de importação, **assets finais otimizados necessários para executar/compilar o jogo**.
-- Não deixar o jogo dependente de um link privado do Drive para rodar: o build e o clone devem poder reproduzir o projeto com os assets publicados no repo ou mecanismo reprodutível documentado (ex.: Git LFS ou download autenticado autorizado no processo de build).
-- O GitHub não é o armazenamento de origem de um catálogo crescente de PNGs brutos/ZIPs/vídeos. Verificar limites efetivos e considerar LFS quando necessário; nunca usar Git LFS sem documentar requisitos e custos.
+**Google Drive — acervo mestre de originais e produção:**
+- Referências aprovadas, originais em resolução máxima, arquivos editáveis e fontes.
+- Rascunhos, testes, versões rejeitadas/descartadas, recortes, turnarounds, sprites em produção, cenários e UI em alta resolução.
+- Vídeos, gravações/músicas-fonte e ZIPs/pacotes úteis ainda não arquivados.
+- **Não duplicar tudo** nas duas plataformas. A exceção lógica é: **arquivo final otimizado que o jogo utiliza no GitHub; fonte/original correspondente no Drive**. Nem sempre são bytes iguais.
 
-## 2. Estrutura obrigatória de pastas no Drive
+## 2. Estrutura padrão por jogo no Drive
 
-Criar **uma pasta principal por projeto**, com o nome do jogo, debaixo de \`GAMES_IA/\`. Preferir nomes estáveis e claros. Exemplo genérico:
-
-\`\`\`
+```text
 Meu Drive/
   GAMES_IA/
     NOME DO JOGO/
@@ -25,48 +28,59 @@ Meu Drive/
       03_CENARIOS_UI/
       04_AUDIO_VIDEO/
       05_EXPORTACOES_PACOTES/
-\`\`\`
+```
 
-- Cada jogo tem suas próprias pastas. **Não misturar** assets de jogos distintos.
-- \`00_REFERENCIAS_APROVADAS\`: originais intocados, com identificador/versão e data da aprovação. Edição vai para outra pasta.
-- \`01_ASSETS_EM_PRODUCAO\`: turnarounds, desmembramentos, rigs, testes, recortes ainda não aprovados.
-- \`02_SPRITES_ANIMACOES\`: PNG transparente, quadros, atlas, spritesheets e prévias de movimento.
-- \`03_CENARIOS_UI\`: mapas, tilesets, cenários, objetos, HUD, menus.
-- \`04_AUDIO_VIDEO\`: efeitos, músicas, locução, cinemáticas e arquivos-fonte.
-- \`05_EXPORTACOES_PACOTES\`: ZIPs, compilações auxiliares, versões entregáveis e pacotes de transferência.
-- Subpastas adicionais podem ser criadas por fase, personagem e data, sem substituir a hierarquia.
+- Criar **uma pasta separada para cada jogo**, sem misturar personagens ou assets de projetos diferentes.
+- `00`: originais intactos e identidade visual aprovada; `01`: conceitos, testes, descartes, trabalhos intermediários; `02`: sprites, atlas e animações **de produção/fonte**; `03`: cenários/UI e fontes em alta resolução; `04`: originais de áudio, vídeo e música; `05`: pacotes exportados, ZIPs e entregáveis.
+- As versões finais **otimizadas utilizadas no jogo** vão para o GitHub do jogo, mesmo quando o material-fonte está no Drive.
+- Pastas adicionais de organização são permitidas; conservar caminhos lógicos estáveis.
 
-## 3. Manifesto obrigatório no GitHub (ponte entre ferramentas)
+## 3. Manifesto obrigatório (ponte Drive × GitHub)
 
-Em **cada repositório de jogo**, manter \`docs/ACERVO_DRIVE.md\` e \`docs/MANIFESTO_ASSETS.md\`:
+Em **cada repositório de jogo**, manter `docs/MANIFESTO_ASSETS.md` e `docs/ACERVO_DRIVE.md`.
 
-- \`ACERVO_DRIVE.md\`: nome e caminho lógico do acervo no Drive, responsável, organização, **permissão verificada** e link somente se expressamente autorizado a constar no GitHub.
-- \`MANIFESTO_ASSETS.md\`: ID estável, título, jogo, personagem/local, tipo, versão, origem, status (aprovado/revisão/provisório/final), caminho no Drive, caminho no GitHub se houver, hash SHA-256 (se calculável), tamanho/dimensões e data. Incluir procedência de IA (ferramenta, prompt/seed quando disponíveis).
-- Antes de gerar sprite, consultar **a referência canônica aprovada** identificada pelo manifesto. Um conceito/crop não é automaticamente sprite.
-- Manter nomenclatura estável para importação na engine; não sobrescrever original nem alterar a identidade visual aprovada.
-- Evitar publicar URLs assinadas, tokens, dados privados ou pastas pessoais de terceiros. Nome lógico do caminho não concede acesso.
+Para cada asset, registrar pelo menos:
+1. **ID estável**, nome/tipo, **versão** e **status** (referência aprovada, em produção, descartado, final etc.).
+2. **Caminho lógico no Drive** da fonte ou original, se existir; **caminho no GitHub** do final de runtime, se existir.
+3. **SHA-256 de cada arquivo efetivamente existente** (original/fonte do Drive, cópia recomprimida do Drive, runtime do GitHub), com `pendente` quando não calculável. Nunca inventar hash.
+4. Metadados pertinentes: dimensões, pivô, frames, FPS, proveniência/gerador, prompt/seed quando disponíveis, licença, data e responsável pela aprovação.
+5. Se uma cópia de imagem sem perda foi necessária, registrar **formato e dois hashes diferentes** (bytes da origem e bytes da cópia), além do resultado da checagem de pixels.
 
-## 4. Protocolo de entrega e sincronização entre ChatGPT, Claude e Codex
+O manifesto não substitui verificação da existência dos arquivos nem da permissão de acesso. Um concept/crop é referência, não um sprite jogável.
 
-1. Confirmar o **jogo certo**, a branch/commit/PR no GitHub e a pasta correta no Drive.
-2. Verificar efetivamente se o agente tem permissão para acessar **ambas as fontes**. Não presumir que uma conexão do ChatGPT esteja automaticamente disponível no Claude ou Codex.
-3. Criar ou atualizar arte no Drive; guardar original e versão, preferencialmente sem sobrescrever.
-4. Conferir upload por listagem ou metadados do Drive. Em falha ou limite técnico, declarar pendência e oferecer arquivo pequeno/particionado ou outra rota autorizada. Não afirmar upload que não aconteceu.
-5. Registrar o item no manifesto do **repositório do jogo** com localização, versão, estado, checksum se disponível.
-6. Integrar ao GitHub **os assets finais necessários para executar o projeto**, com tamanho apropriado, e registrar commit/PR. Não depender de arquivos apenas no computador de uma IA.
-7. No handoff, informar: links verificáveis do Drive quando permitidos, arquivos e hashes, branch/commit ou PR, testes efetuados, itens ainda ausentes, próxima tarefa.
-8. **Sincronizado** só quando a outra IA consegue acessar os materiais requeridos e os links/commits foram confirmados. “Salvo no Drive”, “no GitHub” e “recebido pelo outro agente” são **três estados diferentes**.
+## 4. Limites de upload: preservar pixels, não enviar partes soltas
 
-### Aprovações e privacidade
+- **Limites dependem de cada conector/conta**, não são um limite universal do Google Drive. No conector do Claude observado em ARASHI VANGUARD, o teto prático foi cerca de **3,1 MB por arquivo enviado**.
+- Se o conector recusar o arquivo grande, **não fragmentar uma imagem em partes soltas no Drive**: os pedaços não são uma imagem utilizável.
+- Primeiro, testar **PNG recomprimido sem perda**. Se não couber, usar **WebP lossless (sem perda)** quando a ferramenta e o pipeline aceitarem.
+- **Antes de declarar equivalência**, usar script para comparar os pixels decodificados de ambas as imagens, incluindo largura, altura e valores RGBA de **todos** os pixels (e outros metadados relevantes para o uso, quando houver). A equivalência deve ser **exata**, não apenas visual. Não usar JPEG ou WebP com perda para substituir originais aprovados.
+- Calcular e registrar separadamente **SHA-256 do original** e **SHA-256 da cópia sem perda**, pois os bytes/formato podem mudar mesmo com pixels idênticos. Manter a origem disponível e registrar qual representação está no Drive.
+- Verificar upload por listagem/leitura ou metadados. Se nenhuma opção couber, marcar **PENDENTE** e propor envio manual íntegro ou outra rota autorizada; **não afirmar sincronização**.
+- **ZIP com conteúdo já existente e inventariado no acervo não precisa ser reenviado**. Confirmar cobertura por IDs/hashes, sem supor redundância.
 
-- **Não compartilhar a pasta como "qualquer pessoa com o link" automaticamente.** Solicitar aprovação antes de ampliar permissões.
-- Repositórios públicos não devem conter fotos reais privadas do proprietário, imagens de familiares ou animais de estimação, material confidencial, credenciais, chaves ou links temporários.
-- Gastos com Google Drive, Git LFS, geradores de sprites (PixelLab etc.) e serviços de nuvem devem ser informados e autorizados previamente.
-- Acesso, upload, transformação e publicação não são equivalentes: registrar cada uma separadamente.
-- Os agentes só podem usar ferramentas de nuvem a que estejam **realmente conectados**.
+## 5. Repositório público, privacidade e autorizações
 
-## 5. Exemplo atual — ARASHI VANGUARD
+- **AVISO OBRIGATÓRIO:** um repositório público expõe sprites, cenários, músicas e outras artes **ainda não lançadas** que forem enviados ao GitHub. Informar o dono **antes** de publicar novas artes não lançadas.
+- **Só o proprietário decide** tornar o repositório privado. Não alterar visibilidade sem aprovação.
+- **Não apagar assets que já estejam no GitHub sem aprovação do proprietário**, mesmo que se considere que deveriam estar no Drive.
+- **NUNCA publicar no GitHub links do Google Drive**, IDs privados como links, URLs assinadas, tokens, senhas ou credenciais. Guardar **somente caminhos lógicos** `GAMES_IA/NOME DO JOGO/... ` nos documentos públicos; fornecer links apenas em comunicação autorizada fora do repositório.
+- Não abrir permissões do Drive ("qualquer pessoa com o link") por iniciativa própria.
+- Serviços pagos, novas integrações ou custos adicionais exigem aprovação prévia.
 
-- Drive: \`GAMES_IA/ARASHI VANGUARD/\` — pastas \`00\` a \`05\` criadas e listadas em 15/11/2026.
-- GitHub do jogo: \`andrervarella/ARASHI-VANGUARD-GAME\`.
-- Este exemplo não significa que os ZIPs antigos do ChatGPT tenham sido automaticamente transferidos ao Drive nem que Claude/Codex tenham permissão de acesso. Confirmar antes de usar.
+## 6. Comunicação e confirmação de sincronização
+
+**Três estados independentes:**
+1. `SALVO NO DRIVE`: arquivo criado/enviado e verificado no Drive.
+2. `NO GITHUB`: arquivo/código/manifesto publicado e commit/branch/PR verificáveis.
+3. `OUTRO AGENTE CONSEGUIU ACESSAR`: Claude, Codex ou ChatGPT confirmou acesso real ao arquivo solicitado, não apenas ao link.
+
+**Só declarar `SINCRONIZADO` quando os três estados relevantes para o handoff estiverem confirmados**, com caminho/versão/hash e evidência. Um conector do ChatGPT não significa conexão do Claude/Codex.
+
+Ordem de trabalho: identificar repositório e branch → verificar PRs/commits → localizar pasta do jogo → conferir permissões → produzir/preservar fontes no Drive → testar upload e integridade → atualizar manifesto no GitHub → integrar apenas runtime final necessário → testar build/jogo → verificar acesso do agente de destino → relatar pendências.
+
+No handoff, listar arquivos verificados em cada lugar, os hashes realmente calculados, teste de pixels (quando houver), branch/commit/PR, permissões comprovadas e o que **não** foi testado.
+
+## 7. Referência operacional de origem
+
+- A **DEC-015** de `ARASHI-VANGUARD-GAME`, branch `dev`, foi a origem deste refinamento universal. Seu `docs/ACERVO_DRIVE.md` registra cópias sem perda com verificação de pixels e um limite observado no conector do Claude.
+- **Não transportar arquivos entre repositórios nem apagar materiais existentes** por conta desta atualização de regras.
