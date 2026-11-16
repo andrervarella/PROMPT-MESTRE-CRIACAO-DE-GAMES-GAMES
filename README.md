@@ -1,6 +1,6 @@
 # PROMPT MESTRE UNIVERSAL — CRIAÇÃO DE GAMES COM IA
 
-**Versão vigente: V4.2** · Metodologia compartilhada para ChatGPT, Claude, Codex e outras IAs.
+**Versão vigente: V4.4** · Metodologia compartilhada para ChatGPT, Claude, Codex e outras IAs.
 
 Este repositório público contém **o método universal para criar e aprimorar jogos com IA**, independentemente de gênero, engine, universo ou plataforma. **Não** é o repositório do código de um jogo específico.
 
@@ -21,7 +21,7 @@ Conceito → decisão técnica → **Pacote de Aprovação Visual (Portão V)** 
 | Arquivo | Função |
 |---|---|
 | [PROMPT_MESTRE.md](PROMPT_MESTRE.md) | Método canônico (V4.2), nome estável |
-| [modulos/](modulos/) | Modo jogo completo, pacote de aprovação visual, tarefas/revisão/testes/skills, escopo e orçamento, modelos e paralelismo, comunicação Claude↔Codex, playtest e qualidade, lançamento e retenção, arte/pixel art mobile, áudio, game feel, vídeo/trailer, comercial, skills externas, fontes |
+| [modulos/](modulos/) | Acervo Drive ↔ GitHub (pasta por jogo), modo jogo completo, pacote de aprovação visual, tarefas/revisão/testes/skills, escopo e orçamento, modelos e paralelismo, comunicação Claude↔Codex, playtest e qualidade, lançamento e retenção, arte/pixel art mobile, áudio, game feel, vídeo/trailer, comercial, skills externas, fontes |
 | [AGENTS.md](AGENTS.md) | Regras canônicas para todos os agentes |
 | [CLAUDE.md](CLAUDE.md) | Fino: importa o AGENTS.md e traz só o específico do Claude |
 | [REGISTRO_DE_PROJETOS.md](REGISTRO_DE_PROJETOS.md) | Índice de repositórios de jogos |
@@ -33,6 +33,12 @@ Histórico preservado: [V3.1](PROMPT_MESTRE_UNIVERSAL_GAMES_IA_V3_1.md) e [V3.0]
 ## Como pedir a outra IA
 
 > Consulte o repositório público `https://github.com/andrervarella/PROMPT-MESTRE-CRIACAO-DE-GAMES-GAMES` e leia o `PROMPT_MESTRE.md`. Use-o como método, mas execute e registre o trabalho no repositório do jogo que eu indicar. Antes de modificar, confira branch, commit e PRs abertos, o estado atual e as decisões. Trabalhe em tarefas (fazer → revisar → testar → fechar). Depois reporte mudanças, testes e o commit/PR efetivamente publicado.
+
+## Acervo de assets entre IAs
+
+- **Drive:** `GAMES_IA/NOME DO JOGO/` para artes aprovadas, masters, assets em produção, vídeos, spritesheets e ZIPs grandes.
+- **GitHub do jogo:** código/projeto, documentação, manifestos, versões e assets finais otimizados para executar o jogo.
+- **Sincronização:** só anunciar depois de confirmar upload e acesso. Cada IA precisa de conexão própria; não expor pastas privadas no repositório público. Leia [o módulo Drive/GitHub](modulos/ACERVO_DRIVE_GITHUB.md).
 
 ## Regras de colaboração
 

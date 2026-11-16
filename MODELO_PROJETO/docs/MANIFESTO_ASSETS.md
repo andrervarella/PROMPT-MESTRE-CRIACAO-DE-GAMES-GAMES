@@ -2,9 +2,9 @@
 
 Contrato entre quem produz e quem integra. Placeholder e asset final usam a **mesma chave e o mesmo caminho**.
 
-| Chave | Caminho | Quadro (L×A) | Pivô | FPS | Estados | Status (provisório/final) | Proveniência (ferramenta, prompt, seed, data) |
-|---|---|---|---|---|---|---|---|
-| player_idle | assets/player/idle.png | 64×64 | pés | 8 | idle | provisório | — |
+| Chave | Arquivo runtime (GitHub) | Arquivo mestre (Drive) | Versão / SHA-256 | Quadro (L×A) | Pivô | FPS | Estados | Status (aprovado/provisório/final) | Proveniência (ferramenta, prompt, seed, data) |
+|---|---|---|---|---|---|---|---|---|---|
+| player_idle | assets/player/idle.png | GAMES_IA/[NOME DO JOGO]/02_SPRITES_ANIMACOES/player_idle_v001.png | v001 / pendente | 64×64 | pés | 8 | idle | provisório | — |
 
 ## Áudio
 | Evento (do GDD) | Arquivo | Formato | Loop | Status | Proveniência/licença |

@@ -6,6 +6,7 @@ Arquivo compartilhado por todos os agentes (Codex, Claude Code e outros). Manten
 - O dono é o diretor criativo. Não altere decisões aprovadas sem aprovação; registre mudanças significativas.
 - Modelos: trabalho **criativo** no modelo mais forte, **execução** no mais barato ou no que o dono escolher (`modulos/MODELOS_E_PARALELISMO.md`).
 - Comunicação entre IAs e troca de IA no meio do jogo (revezamento, ordem de serviço, branches, regra anti-sobrescrita): `modulos/COMUNICACAO_CLAUDE_CODEX.md`.
+- **Acervo universal de arte:** por padrão, cada jogo tem pasta exclusiva em Google Drive (`GAMES_IA/NOME DO JOGO/`) para referências, sprites de trabalho, arquivos grandes e ZIPs; código, projeto executável, manifestos e assets finais de runtime ficam no GitHub do jogo. Exigir acesso verificado e sincronização documentada: `modulos/ACERVO_DRIVE_GITHUB.md`. Não publicar links privados nem abrir compartilhamento sem autorização.
 - **Tarefas, revisão e testes:** sem tarefa aberta, não se edita o jogo; FAZER → REVISAR (outro agente) → TESTAR (teste roda de verdade) → FECHADA; um commit por tarefa; skills do que foi aprendido: `modulos/TAREFAS_REVISAO_TESTES.md`.
 - Qualidade do jogo: portões e scorecard em `modulos/PLAYTEST_E_QUALIDADE.md`. A nota da IA é hipótese; vale a do dono e a de jogadores reais.
 - Escopo, descarte e orçamento por fase: `modulos/ESCOPO_E_ORCAMENTO.md`. Lançamento: `modulos/LANCAMENTO_E_RETENCAO.md`.

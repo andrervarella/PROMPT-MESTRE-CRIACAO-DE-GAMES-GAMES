@@ -2,6 +2,15 @@
 
 Registra **mudanças aprovadas e publicadas** na metodologia universal. Não confundir com mudanças em jogos específicos.
 
+## [4.4] — 2026-11-15 (padronização Drive/GitHub; PR desta alteração)
+
+**Decisão do proprietário:** usar Google Drive como acervo mestre de assets de todos os jogos, criando uma pasta por jogo, e o GitHub como fonte de código, documentação, manifestos e assets finais de runtime.
+
+- Novo módulo `modulos/ACERVO_DRIVE_GITHUB.md`: pastas `GAMES_IA/NOME DO JOGO/00...05`, papéis das duas plataformas, manifesto/versão/checksum, controle de permissões e confirmação de sincronização.
+- Ajustes em `AGENTS.md`, `PROMPT_MESTRE.md`, `COMUNICACAO_CLAUDE_CODEX.md`, `README.md` e modelo de projeto; esclarece que uma IA não herda acesso Drive de outra, e que o projeto deve compilar sem depender de transferências manuais.
+- Exemplo de configuração inicial: pasta `GAMES_IA/ARASHI VANGUARD/` e suas subpastas criadas no Drive, verificadas via listagem. **Os arquivos de imagem ainda não estão necessariamente transferidos**; não declarar upload automático.
+- Compatibilidade: o fluxo de tarefas, revisão, testes, branches, Portões V/1/2/3 e aprovação do proprietário permanece válido.
+
 ## [4.2] — 2026-11-14 (PR #3)
 
 **Motivo:** ideias de um vídeo sobre organização de jogos feitos com IA (quadro de tarefas para agentes, revisão por agente separado, registro de decisões, skills), comparadas com o protocolo e aprovadas pelo dono. Tudo com recursos gratuitos.
