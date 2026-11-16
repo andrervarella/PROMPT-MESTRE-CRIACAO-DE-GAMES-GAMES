@@ -98,7 +98,15 @@ O risco: a IA que chega trabalha sobre uma versão antiga e apaga ou contradiz o
 
 **Limites que valem sempre:**
 
-- **Só existe o que está no Git.** Uma IA não enxerga a pasta local da outra. Trabalho que ficou só no computador/ambiente de uma IA, sem commit e push, conta como **NÃO SINCRONIZADO**: a IA que recebe pede ao dono que a outra faça commit e push antes de continuar.
+- **Código e estado do jogo só contam como sincronizados quando há commit/push no Git.** Para referências e matrizes visuais, o **Drive do jogo é o acervo mestre**; o manifesto com localização, versão e aprovação deve estar no Git. Uma IA não enxerga a pasta local da outra; salvar apenas localmente significa **NÃO SINCRONIZADO**. Uma imagem apenas no Drive também não está disponível para a outra IA até que acesso e upload sejam verificados. Os sprites finais necessários à execução devem acompanhar o projeto do jogo.
 - **Ferramentas diferem por IA** (um conector pode existir só em uma). Cada IA declara as ferramentas que realmente tem. Se a tarefa precisa de uma que só a outra tem, avisa o dono e sugere passar a tarefa, registrando no handoff.
-- **Assets gerados por qualquer IA** entram no `docs/MANIFESTO_ASSETS.md` com proveniência (ferramenta, prompt, seed, data) e seguem o mesmo Portão V. O personagem aprovado precisa estar **no repositório** (ex.: `concept/`) para a outra IA usá-lo como referência fixa, seja quem gerou.
+- **Assets de qualquer IA** entram em `docs/MANIFESTO_ASSETS.md` com procedência, versão, caminho no Drive e status. Originais aprovados de alta resolução ficam no acervo mestre do **Drive do jogo**; uma prévia otimizada no GitHub (`concept/`) é recomendada quando permitida. Se não houver prévia pública, guardar somente identificador/manifesto e verificar acesso ao Drive. A outra IA precisa ter acesso real à referência aprovada antes de gerar variações; não basta um caminho textual. Ver `modulos/ACERVO_DRIVE_GITHUB.md`.
 - Duas IAs **não** trabalham ao mesmo tempo nos mesmos arquivos (seção 3). Em dia de troca, o dono avisa quem está com a vez.
+
+
+## 9. Ponte Drive ↔ GitHub — padrão para todos os jogos
+
+- Cada jogo possui sua pasta no Google Drive em `GAMES_IA/NOME DO JOGO/`, com referências aprovadas, assets em andamento, sprites/animações, cenários/UI, áudio/vídeo e exportações, conforme `modulos/ACERVO_DRIVE_GITHUB.md`.
+- O repositório do jogo contém código, projeto Godot/engine, documentação, `docs/ACERVO_DRIVE.md`, `docs/MANIFESTO_ASSETS.md`, e os arquivos finais necessários ao build. Nunca depender de um ZIP privado do Drive para execução sem procedimento autorizado e reproduzível.
+- Em cada handoff, informar quais arquivos foram efetivamente colocados no Drive e no GitHub, o caminho/versão/hash quando disponível, e se Claude/Codex realmente conseguem acessá-los. Nenhuma ferramenta herda automaticamente a conexão de outra.
+- Não compartilhar pastas publicamente sem autorização e não inserir no repositório público links temporários, fotos privadas, credenciais ou materiais sensíveis.
