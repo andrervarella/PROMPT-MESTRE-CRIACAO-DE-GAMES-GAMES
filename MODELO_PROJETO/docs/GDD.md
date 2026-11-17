@@ -25,3 +25,9 @@ Estilo, câmera, animação, FX, SFX, música, HUD.
 
 ## Alvo técnico
 Plataforma, orientação, resolução-base, engine.
+
+
+## Curva de desafio e respiros (uma linha por fase)
+| Fase | Ameaça nova | Habilidade nova | Pico | Respiro |
+|---|---|---|---|---|
+| | | | | |

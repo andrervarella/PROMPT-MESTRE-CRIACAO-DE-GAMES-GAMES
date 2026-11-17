@@ -49,3 +49,30 @@ Texto: frases curtas, poucas palavras por tela, tom combinado com a emoção. M�
 2. Eu sei quem é o herói e o que ele pode perder?
 3. Senti a emoção que eu queria em algum momento?
 4. Quero ver o que vem depois?
+
+
+## 6. Ficha dos 6 (game design em 12 linhas, dentro do conceito)
+
+Não é documento novo: são linhas no conceito (seção 4 do `PROMPT_MESTRE.md`). Se uma linha não muda nenhuma decisão neste jogo, escreva "não se aplica" e o motivo em meia linha.
+
+| # | Conceito | O que escrever | Obrigatório? |
+|---|---|---|---|
+| 1 | Core loop | O ciclo em uma frase (ex.: explorar → lutar → vencer → escolher → voltar mais forte) e o que dá prazer na ação mais repetida | Sim |
+| 2 | Flow | Como o desafio cresce junto com a habilidade; como o jogo ajuda quem trava sem facilitar escondido | Sim |
+| 3 | Tensão e relaxamento | Mapa de ritmo de uma fase típica (calmo → encontros → respiro → tensão → clímax → silêncio → recompensa) e onde entram música e silêncio | Sim |
+| 4 | Círculo mágico | 5 regras do mundo que nenhum texto, som, sprite ou interface pode quebrar; textos de sistema no tom do mundo | Sim |
+| 5 | Procedural / emergente | Se haverá variação por regra e onde ela NÃO entra (ex.: chefes fixos). Aleatoriedade sempre com limites de justiça | Opcional por gênero (roguelike, sandbox, arcade infinito, quebra-cabeça gerado) |
+| 6 | Engajamento ético | Checklist abaixo respondida | Sim |
+
+### Checklist ética (todos "sim" para passar o Portão 2)
+1. Toda recompensa vem de jogar, não de esperar ou pagar?
+2. Não há cronômetro falso, notificação forçada, recompensa diária ou punição por sair?
+3. Não há repetição feita só para alongar o tempo (farm obrigatório)?
+4. Escolhas irreversíveis avisam antes e nunca bloqueiam o final?
+5. A curiosidade e a vontade de continuar vêm da história, do desafio e da descoberta?
+
+### Como aplicar sem burocracia
+- Perguntas sim/não nos portões que já existem; nenhuma etapa nova.
+- Cada recompensa precisa mudar como se joga (não "+5%" genérico) e ter uma prova de uso no jogo.
+- Cada lote de assets responde: que regra do jogo este asset comunica (sinal de ataque, área perigosa)? Respeita as 5 regras do mundo?
+- A lista de eventos sonoros ganha a coluna "nível de tensão" (calmo, alerta, perigo, alívio) e prevê momentos de silêncio.

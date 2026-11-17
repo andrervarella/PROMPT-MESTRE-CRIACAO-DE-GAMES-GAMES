@@ -2,6 +2,17 @@
 
 Registra **mudanças aprovadas e publicadas** na metodologia universal. Não confundir com mudanças em jogos específicos.
 
+## [4.6] — 2026-11-16 (proposta por PR; aprovada pelo dono no ARASHI VANGUARD, DEC-022)
+
+**Motivo:** incorporar seis conceitos de game design (core loop, flow, tensão e relaxamento, círculo mágico, procedural/emergente, engajamento ético) sem criar documentos nem etapas novas.
+
+- **Seção 4:** "Ficha dos 6" (máx. 12 linhas) dentro do conceito; modelo em `modulos/EXPERIENCIA_E_NARRATIVA.md`, seção 6.
+- **Portão 1:** 4ª pergunta (Flow): "quando perdi, entendi por quê e quis tentar de novo?". Quatro "sim" passam. Jogo de ação: arena de ~3 min antes de fases e história.
+- **GDD:** curva de desafio e respiros (template em `MODELO_PROJETO/docs/GDD.md`).
+- **Portões 2 e 3:** observação de Flow e ritmo em todo playtest; perguntas "o ritmo alternou?" e "algo quebrou a imersão?"; checklist ética com todos "sim".
+- Procedural/emergente é **opcional por gênero**; demais conceitos obrigatórios e leves.
+- Compatibilidade: nenhum portão removido; projetos em andamento adotam no próximo portão.
+
 ## [4.5] — 2026-11-15 (DEC-015, proposta por PR; pendente de merge na main)
 
 **Motivo:** tornar a separação Drive × GitHub inequívoca para todos os jogos, a partir da DEC-015 aprovada no ARASHI VANGUARD (`dev`, `docs/DECISOES.md` e `docs/ACERVO_DRIVE.md`).
