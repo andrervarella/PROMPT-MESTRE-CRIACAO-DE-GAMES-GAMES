@@ -1,5 +1,5 @@
 # PROMPT MESTRE UNIVERSAL — CRIAÇÃO DE JOGOS COM IA
-## Versão 4.5 | Núcleo curto + módulos sob demanda
+## Versão 4.6 | Núcleo curto + módulos sob demanda
 
 > **COMO USAR:** documento canônico e universal (sem gênero, engine, personagens ou plataforma pressupostos). **Sempre comece pela seção 1.** Depois: ideia nova → seção 3 (Modo A); briefing já aprovado em agente de código (com a decisão técnica da seção 5 definida) → seção 6 (Modo B). Abra um módulo de `modulos/` **só quando a tarefa pedir**.
 >
@@ -68,6 +68,7 @@ Proposta, público, objetivo, plataforma, estética, **core loop**, riscos, esco
 - **Emoção e história:** emoção central e seu arco, gancho dos primeiros 10 s, **história curta** (5–10 linhas), o que está em jogo e o **roteiro das cenas** (menu, introdução, cutscenes curtas, vitória/derrota, final): `modulos/EXPERIENCIA_E_NARRATIVA.md`.
 - **Momentos compartilháveis:** 1–3 situações genuínas de surpresa, habilidade, humor ou recompensa.
 - **Retenção:** por que jogar de novo, sem retenção artificial.
+- **Ficha dos 6 (máx. 12 linhas):** core loop numa frase · como o desafio cresce (Flow) · onde a tensão alterna com o alívio · 5 regras do mundo que nada pode quebrar (círculo mágico) · se haverá variação procedural e por quê (opcional por gênero) · checklist ética respondida. Modelo em `modulos/EXPERIENCIA_E_NARRATIVA.md`, seção 6.
 - **Frase do jogo, pergunta do protótipo, lista de cortes, critério de descarte e orçamento por fase:** `modulos/ESCOPO_E_ORCAMENTO.md`.
 
 Objetivo comercial: `modulos/COMERCIAL.md`. Hobby, aprendizado ou marca: checagem leve, sem atrasar. Entre ideias reais, até 3 propostas com trade-offs e recomendação **TESTAR / AJUSTAR / NÃO INVESTIR AINDA**. Toda análise termina em decisão.
@@ -96,13 +97,13 @@ Antes de criar os assets finais, produza o **mínimo de imagens-conceito** para 
 
 Construa a **menor amostra jogável** que prove o core loop, usando as imagens aprovadas (estáticas) como **placeholders provisórios de nomes e caminhos estáveis**. **Jogo de ação:** gere antes o **lote-piloto de animação** do módulo do pacote (mínimo de quadros do verbo central), senão uma imagem parada não prova que o controle obedece. O asset final depois substitui sem mudar código.
 
-**Portão 1** — o dono joga e responde sim/não: (a) entendi o que fazer sem ajuda? (b) o controle obedeceu? (c) joguei de novo sem ninguém pedir? **Três "sim" passam.** Senão, ajuste aqui, onde é barato. Reprovou 3 vezes: critério de descarte em `ESCOPO_E_ORCAMENTO.md`.
+**Portão 1** — o dono joga e responde sim/não: (a) entendi o que fazer sem ajuda? (b) o controle obedeceu? (c) joguei de novo sem ninguém pedir? (d) quando perdi, entendi por quê e quis tentar de novo? **Quatro "sim" passam.** Jogo de ação: antes de fases e história, uma **arena de ~3 min** (1 inimigo, 1 mini-chefe de padrão fixo, golpe, defesa/esquiva, som e pausa no impacto) prova o combate; se ninguém quer jogar a arena de novo, mais fases não salvam o jogo. Senão, ajuste aqui, onde é barato. Reprovou 3 vezes: critério de descarte em `ESCOPO_E_ORCAMENTO.md`.
 
 **A produção completa de assets (seção 8) só começa depois dos Portões V e 1.**
 
 ## 7. GDD ENXUTO (TRAVAR DEPOIS DO PORTÃO 1)
 
-Use o template `docs/GDD.md`: high concept, 3 pilares, core loop, mecânicas e comandos (entradas, estados, hitboxes, feedback, falha), progressão, personagens/mundo, **história, emoção e roteiro das cenas**, experiência audiovisual (inclui a **tela inicial**), escopo e exclusões, critérios de aceitação. Curto no início, versionado depois.
+Use o template `docs/GDD.md`: high concept, 3 pilares, core loop, **curva de desafio e respiros** (uma linha por fase: ameaça nova, habilidade nova, pico, respiro), mecânicas e comandos (entradas, estados, hitboxes, feedback, falha), progressão, personagens/mundo, **história, emoção e roteiro das cenas**, experiência audiovisual (inclui a **tela inicial**), escopo e exclusões, critérios de aceitação. Curto no início, versionado depois.
 
 ## 8. BÍBLIA VISUAL E PRODUÇÃO COMPLETA DE ASSETS
 
@@ -122,7 +123,7 @@ Módulos: `ARTE_PIXEL_MOBILE.md`, `AUDIO.md` (música e efeitos gratuitos por c�
 
 **Vertical slice:** pequena seção representativa com gameplay, arte, som, UX e desempenho próximos do final, **incluindo menu/tela inicial animada, introdução com a história e a primeira fase completa**, com a emoção funcionando. **Prove diversão, emoção e qualidade na menor amostra; depois repita a qualidade.** Nada de dezenas de fases ruins.
 
-**Portão 2:** scorecard de `modulos/PLAYTEST_E_QUALIDADE.md` com nota do dono, **média ≥ 8 e nenhum item < 6**, mais o checklist de emoção de `EXPERIENCIA_E_NARRATIVA.md`. Jogadores de fora entram como achados observados. Com o dono como único testador, registre **"PORTÃO 2 — SÓ DONO"**. Só então a expansão modular.
+**Portão 2:** scorecard de `modulos/PLAYTEST_E_QUALIDADE.md` com nota do dono, **média ≥ 8 e nenhum item < 6**, mais o checklist de emoção e a **checklist ética** de `EXPERIENCIA_E_NARRATIVA.md` (ética: todos os itens "sim"). Jogadores de fora entram como achados observados. Com o dono como único testador, registre **"PORTÃO 2 — SÓ DONO"**. Só então a expansão modular.
 
 **Vários agentes em paralelo** (padrão 2–3) só com contratos travados (manifesto de assets, lista de eventos sonoros, roteiro das cenas): `modulos/MODELOS_E_PARALELISMO.md`. Aprovações do dono: conceito/escopo, identidade visual canônica, mudanças grandes, custos, publicação.
 

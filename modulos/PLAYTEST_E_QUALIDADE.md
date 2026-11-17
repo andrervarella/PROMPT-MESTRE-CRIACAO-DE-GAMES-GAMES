@@ -10,13 +10,14 @@ Objetivo: tornar "o jogo está bom?" **operável e mensurável**. Usado nos Port
 - **Testador único (o dono) é aceito**, por decisão dele. Registre como **"SÓ DONO"** em qualquer portão. Jogadores de fora, quando existirem, entram como **achados observados** e valem mais que a opinião do dono.
 - Nota sem evidência vale NÃO VERIFICADO.
 
-## Portão 1 — prova do core loop (3 perguntas sim/não ao dono)
+## Portão 1 — prova do core loop (4 perguntas sim/não ao dono)
 
 1. Entendi o que fazer sem ajuda?
 2. O controle obedeceu?
 3. Joguei de novo sem ninguém pedir?
+4. Quando perdi, entendi por quê e quis tentar de novo? (Flow)
 
-**Três "sim" passam.** Jogo de ação: use o lote-piloto de animação, não só imagem parada. Reprovou 3 vezes: critério de descarte em `ESCOPO_E_ORCAMENTO.md`.
+**Quatro "sim" passam.** Jogo de ação: use o lote-piloto de animação, não só imagem parada. Reprovou 3 vezes: critério de descarte em `ESCOPO_E_ORCAMENTO.md`.
 
 ## Portão 2 e 3 — scorecard 0–10 (nota do dono)
 
@@ -35,6 +36,19 @@ Objetivo: tornar "o jogo está bom?" **operável e mensurável**. Usado nos Port
 
 **Portão 2 (vertical slice):** média ≥ 8 e nenhum item < 6.
 **Portão 3 (Concluído):** mesmo critério, aplicado ao jogo completo, com smoke test e teste no aparelho feitos. **O ideal são 3 jogadores de fora observados.** Se o dono for o único testador, o estágio declarado é **"CONCLUÍDO — SÓ DONO"**: vale, mas a IA avisa que falhas de clareza costumam aparecer só com gente de fora.
+
+## Observação de Flow e ritmo (todo playtest, inclusive SÓ DONO)
+
+| O que observar | Sinal bom | Sinal ruim |
+|---|---|---|
+| Tentativas por chefe/desafio | 2 a 6 | 0 (fácil) ou mais de 12 (parede) |
+| Tempo até tentar de novo | menos de 10 s | desiste ou demora |
+| Pula diálogo/cena | pula pouco | pula tudo (longo ou fora de hora) |
+| Uso das defesas/técnicas | cresce ao longo do jogo | ninguém usa |
+| Escolha de itens/caminhos | pessoas escolhem diferente | todos pegam o mesmo (dominante) |
+| "Teve algum momento chato?" | resposta curta e específica | vários momentos |
+
+Mais duas perguntas ao dono nos Portões 2 e 3 (sim/não, registradas junto do scorecard): **o ritmo alternou tensão e alívio?** e **algo quebrou a imersão?** (se sim, qual).
 
 ## Protocolo de playtest (quando houver jogadores de fora)
 
