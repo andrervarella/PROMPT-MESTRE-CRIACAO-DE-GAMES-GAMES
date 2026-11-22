@@ -37,6 +37,19 @@ Objetivo: a IA trabalhar como alguém do time, que **segue regra, testa, documen
 - Registro curto (5 linhas) em `docs/handoff/` ou na descrição do PR: o que olhou, achados, gravidade, decisão.
 - **Economia de crédito:** tarefas pequenas da mesma sessão podem ser revisadas **em lote**, uma vez no fim. Tarefas só de texto/documentação ou troca de arquivo de asset sem código: revisão leve (o próprio dono olha ou a IA confere o checklist), registrada como tal.
 
+## 3.1 Ritmo enxuto (V4.6) — qualidade alta sem queimar tokens
+
+Aprendido no PROTOCOLO ZERO (fase 1, 22/11/2026): o ciclo "4 revisores + gerente a cada rodada" pegou bugs reais, mas cada rodada custou 8–9 agentes, estourou o limite de uso e repetiu ~60% do esforço (todos rodavam os mesmos testes). E o principal teste de qualidade — **a sensação de jogar no aparelho** — só o dono faz. Padrão a partir da V4.6:
+
+**Três travas que nunca se pulam**
+1. **Testes automáticos em todo commit** (robô que joga as salas, teste de combate, teste de toque, história de ponta a ponta). Falhou → não sai.
+2. **O dono joga cada etapa no celular**: toda etapa termina num link de **VERSÃO DE TESTE** (marcada como tal), com o que mudou, ≤ 5 passos de teste e defeitos conhecidos. O dono devolve até 3 impressões, que orientam a próxima etapa.
+3. **Revisão completa no MARCO** (fim de fase/vertical slice e fim do jogo): revisores separados (técnico, celular, QA, fidelidade) + **gerente**, que só escreve APROVADO com a lista checada.
+
+**Ciclo de uma etapa (~1 h):** planejar (modelo forte) → construir (1–2 construtores, modelo barato, cada um dono dos seus arquivos, rodando a trava 1) → **1 revisor novo combinado** só sobre o que mudou → publicar versão de teste → registrar o que ficou para depois em `DIVIDAS.md` (severidade e dono).
+
+**Economia:** revisores leem o resultado da trava 1 em vez de repetir a bateria; capturas redimensionadas (~800–900 px) antes de olhar; gerente só no marco. Quem constrói continua sem revisar o próprio trabalho.
+
 ## 4. Testes que rodam de verdade
 
 - Todo jogo tem um comando `npm test` (ou equivalente da engine) desde o primeiro código.

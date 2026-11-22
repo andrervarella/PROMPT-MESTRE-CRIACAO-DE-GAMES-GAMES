@@ -2,6 +2,14 @@
 
 Registra **mudanças aprovadas e publicadas** na metodologia universal. Não confundir com mudanças em jogos específicos.
 
+## [4.6] — 2026-11-22 (ritmo enxuto; proposta por PR)
+
+**Motivo:** no PROTOCOLO ZERO (fase 1) o ciclo "4 revisores + gerente por rodada" funcionou, mas custou caro (8–9 agentes por rodada, limite de uso estourado duas vezes, ~60% de esforço repetido) e deixava o dono, o único que sente o jogo no aparelho, por último. Aprovado pelo dono em 22/11/2026.
+
+- `modulos/TAREFAS_REVISAO_TESTES.md` §3.1: três travas (testes automáticos em todo commit; dono joga cada etapa por versão de teste; revisão completa + gerente só no marco), ciclo de etapa de ~1 h, `DIVIDAS.md` e regras de economia.
+- `AGENTS.md` e `PROMPT_MESTRE.md` apontam para §3.1.
+- Compatibilidade: FAZER → REVISAR → TESTAR → FECHADA, revisor independente, Portões V/1/2/3, Contrato de Evidência e aprovações do dono continuam iguais. Muda só **a frequência** da revisão pesada.
+
 ## [4.5] — 2026-11-15 (DEC-015, proposta por PR; pendente de merge na main)
 
 **Motivo:** tornar a separação Drive × GitHub inequívoca para todos os jogos, a partir da DEC-015 aprovada no ARASHI VANGUARD (`dev`, `docs/DECISOES.md` e `docs/ACERVO_DRIVE.md`).
